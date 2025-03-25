@@ -1,0 +1,10 @@
+mixin marquee-line(props)
+  - var hoverStop = props.hoverStop ? `marquee-line--stop-hover` : ''
+  - var direction = props.direction ? `marquee-line--direction-left` : ''
+
+  .marquee-line(class=[hoverStop, direction])
+    .marquee-line__content
+      each item in props.items
+        - var tag = item.href ? 'a' : 'span'
+        #{tag}.marquee-line__item(href=item.href)
+          img.marquee-line__image(src=item.image, alt="")

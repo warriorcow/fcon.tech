@@ -1,0 +1,18 @@
+mixin slider(props)
+  - var isDisableDesktop = props.isDisableDesktop;
+  - var showMoreButton = props.isDisableDesktop || false;
+
+  .swiper(
+    class=(isDisableDesktop ? `swiper--disable-desktop` : ''),
+    data-slides-per-view=props.slidesPerView,
+    data-show-more=showMoreButton
+  )&attributes(attributes)
+    .swiper-wrapper
+      if block
+        block
+    .swiper-pagination
+    if showMoreButton
+      .swiper__footer
+        +button({
+          text: 'Загрузить больше',
+        }).swiper__show-more-button

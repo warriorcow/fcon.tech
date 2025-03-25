@@ -1,0 +1,58 @@
+@use '../../base/helpers' as *;
+
+.scroll-up {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  z-index: 3;
+
+  width: 60px;
+  height: 60px;
+
+  background-color: rgba(#001BBD, 0.4);
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0;
+
+  transition: opacity var(--transition-duration) ease-in-out;
+
+  pointer-events: none;
+
+  @include tablet {
+    right: 20px;
+    bottom: 20px;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  @include mobile {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 40px;
+    height: 20px;
+
+    background: url("../img/arrow-up.svg") no-repeat center / contain;
+    transform: translate(-50%, -50%);
+
+    content: '';
+
+    @include tablet {
+      width: 27px;
+      height: 13px;
+    }
+  }
+
+  &.visible {
+    opacity: 1;
+
+    pointer-events: all;
+  }
+}

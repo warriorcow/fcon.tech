@@ -1,0 +1,172 @@
+@use '../../base/helpers' as *;
+
+.callback {
+  $self: &;
+  $transition: 150ms;
+
+  &__wrapper {
+    display: flex;
+    overflow: hidden;
+
+    background: var(--background-violet-gradient);
+    border-radius: 20px 30px 30px 20px;
+
+    transition: background-color 500ms;
+
+    @include tablet {
+      border-radius: 15px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    z-index: 3;
+
+    flex-grow: 1;
+    max-width: 560px;
+    padding: 40px;
+
+    background: url("../img/blot.svg") no-repeat center / 70%, var(--color-light);
+    border-radius: 20px;
+
+    @include tablet {
+      max-width: 333px;
+      padding: 20px;
+
+      border-radius: 15px;
+    }
+
+    @include mobile {
+      max-width: 100%;
+
+    }
+  }
+
+  &__title {
+    @include fontH1;
+
+    @include tablet {
+      @include fontH4;
+    }
+  }
+
+  &__description {
+    @include fontT1;
+    max-width: 445px;
+
+    margin-top: 8px;
+
+    @include tablet {
+      @include fontT4;
+    }
+  }
+
+  &__social {
+    margin-top: 16px;
+
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  &__media {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      margin-right: 5px;
+    }
+  }
+
+  &__form-wrapper {
+    position: relative;
+    z-index: 2;
+
+    flex-grow: 1;
+  }
+
+  &__form {
+    display: grid;
+    grid-gap: 0 30px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px;
+
+    transform: translateY(0%);
+
+    transition: all $transition * 2 ease-in-out;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      padding: 20px;
+    }
+  }
+
+  &__form-thx {
+    @include fontH2;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% + 15px);
+    height: 100%;
+    padding-left: 15px;
+
+    color: var(--color-light);
+
+    background-color: var(--color-accent);
+    opacity: 0;
+
+    transition: opacity $transition $transition * 2 ease-in-out;
+
+    img {
+      position: absolute;
+      right: 25px;
+      bottom: 10px;
+    }
+  }
+
+  &.success {
+    #{$self}__form {
+      transform: translateY(100%);
+    }
+
+    #{$self}__form-thx {
+      opacity: 1;
+    }
+  }
+
+  &__input {
+    &:nth-child(1) {
+      grid-column: span 2;
+
+      @include tablet {
+        grid-column: 1;
+      }
+    }
+  }
+
+  &__checkbox {
+    grid-column: span 2;
+    margin-top: 12px;
+
+    @include tablet {
+      grid-column: 1;
+      margin-top: 0;
+    }
+  }
+
+  &__submit {
+    margin-top: 16px;
+
+    @include tablet {
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+mixin project-card(props)
+  .project-card
+    .project-card__content
+      .project-card__image
+        img(src=props.image)
+        .project-card__tag= props.tag
+      .project-card__title= props.title
+      .project-card__description= props.description
+    .project-card__footer
+      +button({
+        text: props.button.text,
+        href: props.button.href,
+        view: 'blue-white'
+      }).project-card__button
+

@@ -1,0 +1,27 @@
+section.start-banner
+  .container.start-banner__header
+    .start-banner__title
+      h1 Помогаем компаниям
+        br
+        | становиться быстрее, гибче и эффективнее
+      .start-banner__title-bg
+    .start-banner__subtitle Мы убеждены, что достичь этого можно, установив единые культурные ценности, смыслы и общие цели внутри компании.
+
+  .start-banner__footer
+    +marquee-line({
+      hoverStop: false,
+      items: [
+        { image: 'img/x5-logo.svg' }
+      ]
+    })(target="_blank")
+
+    .container.start-banner__buttons
+      +button({
+        text: 'Напишите нам',
+        href: '#callback'
+      }).hidden-desktop
+      +button({
+        text: 'Наши клиенты',
+        href: '#clients',
+        view: 'blue-white'
+      })

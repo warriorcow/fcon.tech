@@ -1,0 +1,53 @@
+.marquee-line {
+  $self: &;
+  position: relative;
+
+  display: flex; /* Используем flex для выравнивания контента */
+
+  width: 100%;
+  overflow: hidden; /* Скрываем всё, что выходит за пределы контейнера */
+
+  white-space: nowrap; /* Запрещаем перенос строк */
+
+  &__content {
+    display: flex; /* Элементы в одну строку */
+
+    animation: marquee 19s linear infinite; /* Анимация движения */
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 60px;
+    margin-right: 20px;
+  }
+
+  &__image {
+    display: block; /* Убираем лишние отступы у изображений */
+    max-width: 100%; /* Чтобы изображения не выходили за пределы */
+    height: auto; /* Сохраняем пропорции */
+  }
+
+  &--stop-hover {
+    &:hover #{$self}__content {
+      animation-play-state: paused; /* Останавливаем анимацию при наведении */
+    }
+  }
+
+  &--direction-left {
+    #{$self}__content {
+      animation: marquee 19s linear reverse infinite;
+    }
+  }
+}
+
+/* Анимация движения */
+@keyframes marquee {
+  0% {
+    transform: translateX(0); /* Начинаем с исходной позиции */
+  }
+  100% {
+    transform: translateX(-100%); /* Сдвигаем контейнер на всю его ширину */
+  }
+}

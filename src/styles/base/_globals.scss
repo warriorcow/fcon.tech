@@ -1,0 +1,125 @@
+// @link https://rolle.design/native-css-variables-vs-scss-variables
+
+@use 'helpers' as *;
+
+:root {
+  --container-width: #{rem(1200)};
+  --container-padding-x: #{rem(20)};
+  --scroll-bar: #{rem(15)};
+  --100vw: calc(100vw - var(--scroll-bar));
+
+  --font-family-base: 'Geologica', sans-serif;
+
+  --color-light: #fff;
+  --color-light-transparent-20: rgba(255, 255, 255, 0.2);
+  --color-light-transparent-30: rgba(255, 255, 255, 0.3);
+  --color-light-transparent-40: rgba(255, 255, 255, 0.4);
+  --color-light-transparent-60: rgba(255, 255, 255, 0.6);
+  --color-dark: #000000;
+  --color-gray: #6C778E;
+  --color-gray-transparent: rgba(195, 195, 195, 0.3);
+  --color-gray-header-transparent: rgba(244, 244, 246, 0.8);
+  --color-light-gray: #F4F4F6;
+  --color-accent: #4760F3;
+  --color-accent-secondary: #2D47E1;
+  --color-accent-alt: #8082F4;
+  --color-danger: #FF2C2C;
+  --color-danger-alt: #FF8080;
+  --color-danger-text: #FF9696;
+  --color-danger-transparent: rgba(255, 167, 167, 0.4);
+  --background-violet-gradient: linear-gradient(86.95deg, #4760F4 11.58%, #8082F4 66.17%);
+
+  --border: #{rem(1)} solid rgb(var(--color-accent));
+  --shadow: 0 0 0 #{rem(3)} rgba(var(--color-dark), 0.5);
+
+  --transition-duration: 0.2s;
+
+  //@include laptop {
+  //  --container-width: #{rem(1280)};
+  //}
+}
+
+html {
+  :target {
+    scroll-margin-top: 123px;
+
+    @include tablet {
+      scroll-margin-top: 90px;
+    }
+  }
+}
+
+body {
+  //@include fluid-text(18, 14);
+
+  min-width: rem($minViewportWidth);
+
+  color: var(--color-dark);
+  font-family: var(--font-family-base);
+
+  background-color: var(--color-light-gray);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 80px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container-width) + var(--container-padding-x));
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+
+  @include tablet {
+    padding-inline: 40px;
+  }
+
+  @include mobile {
+    padding-inline: 10px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+
+  //transition-duration: var(--transition-duration);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  @include hover {
+    text-decoration: underline;
+  }
+}
+
+:focus-visible {
+  border-radius: rem(12);
+  outline: rem(2) dashed rgb(var(--color-dark));
+  outline-offset: rem(4);
+
+  transition-duration: 0s !important;
+
+  @include laptop {
+    border-radius: rem(8);
+  }
+}

@@ -1,0 +1,31 @@
+@use '../../node_modules/normalize.css/normalize.css';
+
+@use 'base/fonts';
+@use 'base/normalize-custom';
+@use 'base/globals';
+
+@use "blocks/mixins/button";
+@use "blocks/mixins/marquee-line";
+@use "blocks/mixins/box-header";
+@use "blocks/mixins/project-card";
+@use "blocks/mixins/product-card";
+@use "blocks/mixins/client-card";
+@use "blocks/mixins/slider";
+@use "blocks/mixins/arrow-button";
+@use "blocks/mixins/input";
+@use "blocks/mixins/checkbox";
+
+@use "blocks/parts/default/header";
+@use "blocks/parts/default/footer";
+@use "blocks/parts/start-banner";
+@use "blocks/parts/team";
+@use "blocks/parts/projects";
+@use "blocks/parts/products";
+@use "blocks/parts/clients";
+@use "blocks/parts/logos";
+@use "blocks/parts/callback";
+@use "blocks/parts/scroll-up";
+
+@use 'base/utils';
+
+@import 'aos/dist/aos.css';

@@ -1,0 +1,13 @@
+mixin client-card(props)
+  .client-card
+    .client-card__header
+      .client-card__content
+        .client-card__title= props.title
+        .client-card__description= props.description
+      a.client-card__logo(href="#")
+        img(src=props.image)
+
+    .client-card__body
+      .client-card__text= props.text
+
+

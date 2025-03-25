@@ -1,0 +1,6 @@
+mixin input(props)
+  - var type = props.type || 'text';
+
+  label.el-input&attributes(attributes)
+    span.el-input__label= props.label
+    input.el-input__input(type=type, placeholder=props.placeholder, required=props.required, id=props.id, name=props.id)

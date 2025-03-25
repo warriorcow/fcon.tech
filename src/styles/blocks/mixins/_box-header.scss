@@ -1,0 +1,38 @@
+@use '../../base/helpers' as *;
+
+.box-header {
+  display: flex;
+  gap: 0 20px;
+  margin-bottom: 40px;
+
+  @include tablet {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    @include fontH1;
+
+    @include tablet {
+      @include fontH4;
+    }
+  }
+
+  &__description {
+    @include fontT2;
+    max-width: 520px;
+
+    margin-top: 20px;
+
+    @include tablet {
+      @include fontT4;
+      max-width: 470px;
+
+      margin-top: 10px;
+    }
+  }
+
+  &__additional {
+    display: flex;
+    margin-left: auto;
+  }
+}

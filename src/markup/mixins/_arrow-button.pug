@@ -1,0 +1,4 @@
+mixin arrow-button(props)
+  - var direction = props && `arrow-button--${props.direction}` || ''
+
+  .arrow-button(class=direction)&attributes(attributes)

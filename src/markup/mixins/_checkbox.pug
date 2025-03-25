@@ -1,0 +1,7 @@
+mixin checkbox(props)
+  label.el-checkbox&attributes(attributes)
+    input.el-checkbox__input(type="checkbox", required=props.required, id=props.id)
+    span.el-checkbox__checkbox
+    if props.label
+      span.el-checkbox__label
+        block

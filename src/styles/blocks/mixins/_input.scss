@@ -1,0 +1,58 @@
+@use '../../base/helpers' as *;
+
+.el-input {
+  $self: &;
+
+  @include fontT1;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 28px;
+
+  @include tablet {
+    @include fontT3;
+  }
+
+  &__label {
+    color: var(--color-light);
+  }
+
+  &__input {
+    margin-top: 8px;
+    padding: 9px 10px 8px;
+
+    color: var(--color-light);
+
+    background-color: var(--color-light-transparent-20);
+    border: 1px solid var(--color-light);
+    border-radius: 10px;
+
+    &.invalid {
+      color: var(--color-danger-text);
+
+      background-color: var(--color-danger-transparent);
+      border-color: var(--color-danger);
+    }
+
+    &:-webkit-autofill {
+      color: inherit !important;
+
+      background: none !important;
+      box-shadow: 0 0 0 1000px white inset !important; /* Убирает желтый фон в Chrome */
+    }
+  }
+
+  &__error-message {
+    @include fontT3;
+
+    position: absolute;
+    bottom: 8px;
+
+    display: inline-block;
+
+    color: var(--color-danger-alt);
+  }
+}

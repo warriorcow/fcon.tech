@@ -1,0 +1,9 @@
+mixin box-header(props)
+  .box-header(data-aos="fade-up", data-aos-delay="100")
+    .box-header__content
+      h2.box-header__title= props.title
+      if props.description
+        p.box-header__description= props.description
+    .box-header__additional
+      if block
+        block

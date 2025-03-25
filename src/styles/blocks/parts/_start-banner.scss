@@ -1,0 +1,126 @@
+@use '../../base/helpers' as *;
+
+.start-banner {
+  $self: &;
+
+  &__header {
+    padding-top: 110px;
+    padding-bottom: 80px;
+
+    text-align: center;
+
+    @include tablet {
+      padding-top: 50px;
+    }
+
+    @include mobile {
+      padding-top: 30px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__title {
+    position: relative;
+
+    h1 {
+      @include fontH1;
+
+      @include tablet {
+        @include fontH4;
+      }
+
+      @include mobile {
+        padding-top: 74px;
+        padding-bottom: 97px;
+      }
+    }
+  }
+
+  &__title-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+
+    width: 100%;
+    height: 349px;
+
+    background: url('../img/blot.svg') no-repeat center / contain;
+    transform: translate(-50%, -44%);
+
+    @include tablet {
+      height: 250px;
+
+      transform: translate(-50%, -33%);
+    }
+
+    @include mobile {
+      left: 0;
+
+      height: 270px;
+
+      transform: translateY(-50%);
+    }
+  }
+
+  &__subtitle {
+    @include fontT1;
+    max-width: 580px;
+
+    margin: 20px auto 0;
+
+    color: var(--color-gray);
+
+    @include tablet {
+      @include fontT4;
+
+      max-width: 521px;
+    }
+
+    @include mobile {
+      margin-top: 20px;
+    }
+  }
+
+  &__footer {
+    position: relative;
+
+    display: flex;
+
+    @include tablet {
+      flex-direction: column-reverse;
+    }
+
+    #{$self}__buttons {
+      position: absolute;
+      left: 50%;
+      z-index: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 300px;
+      height: 60px;
+
+      background: linear-gradient(90deg, rgba(244, 244, 246, 0) 0%, #F4F4F6 7.88%, #F4F4F6 92.43%, rgba(244, 244, 246, 0) 100%);
+      transform: translateX(-50%);
+
+      @include tablet {
+        position: static;
+        left: 0;
+
+        gap: 10px 20px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+
+        background: none;
+        transform: none;
+      }
+
+      @include mobile {
+        flex-direction: column;
+      }
+    }
+  }
+}

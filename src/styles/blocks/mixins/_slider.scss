@@ -1,0 +1,80 @@
+@use '../../base/helpers' as *;
+@import 'swiper/swiper-bundle.min.css';
+
+.swiper {
+  $swiper: &;
+
+  @include mobile {
+    margin: 0 -10px;
+    padding: 0 10px;
+  }
+
+  &-slide {
+    height: auto;
+  }
+
+  &-pagination {
+    position: relative;
+    bottom: 0 !important;
+
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    &-bullet {
+      width: 10px;
+      height: 10px;
+
+      background-color: transparent;
+      border: 1px solid var(--color-accent);
+      opacity: 1;
+
+      &-active {
+        background-color: var(--color-accent);
+      }
+    }
+  }
+
+  &--disable-desktop {
+    #{$swiper}-pagination {
+      @include tablet-above {
+        display: none;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .swiper-slide--hidden {
+    transform: translateY(100px);
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .fade-in {
+    transform: translateY(100px);
+    visibility: visible;
+    opacity: 0;
+
+    animation: fadeInUp 0.4s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

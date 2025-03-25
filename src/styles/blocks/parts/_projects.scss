@@ -1,0 +1,25 @@
+@use '../../base/helpers' as *;
+
+.projects {
+  &__cell {
+    .swiper-wrapper {
+      @include tablet-above {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+    }
+
+    .swiper-slide {
+      @include tablet-above {
+        width: 100% !important;
+      }
+    }
+
+    .swiper-pagination {
+      @include tablet-above {
+        display: none;
+      }
+    }
+  }
+}

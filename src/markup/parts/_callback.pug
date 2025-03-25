@@ -1,0 +1,45 @@
+section.callback.container#callback
+  .callback__wrapper
+    .callback__content
+      .callback__title Свяжитесь с нами
+      .callback__description Мы свяжемся с вами, чтобы помочь вашему бизнесу стать эффективнее
+      .callback__social
+        a(href="#").callback__media
+          +icon('icon-tg')(width='29', height='29')
+          | Telegram
+    .callback__form-wrapper
+      form.callback__form#callback__form
+        +input({
+          id: 'name',
+          label: 'Ваше имя',
+          required: true,
+          errorMessage: 'Поле заполнено некорректно, проверьте'
+        }).callback__input
+        +input({
+          id: 'phone',
+          label: 'Телефон для связи',
+          type: 'tel',
+          errorMessage: 'Поле заполнено некорректно, проверьте'
+        }).callback__input
+        +input({
+          id: 'email',
+          label: 'Электронная почта',
+          errorMessage: 'Поле заполнено некорректно, проверьте'
+        }).callback__input
+
+        +checkbox({
+          id: 'policy',
+          label: 'Электронная почта',
+          errorMessage: 'Поле заполнено некорректно, проверьте'
+        }).callback__checkbox
+          | Я принимаю условия политики конфиденциальности.
+
+        +button({
+          text: 'Отправить запрос',
+          view: 'white',
+          type: 'submit'
+        }).callback__submit
+
+      .callback__form-thx
+        span Спасибо!
+        img(src="img/logo-faust-white.svg")

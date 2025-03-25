@@ -1,0 +1,64 @@
+@use '../../base/helpers' as *;
+
+.button {
+  @include fontT1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 250px;
+  padding: 10px 20px;
+
+  color: var(--color-light);
+  white-space: nowrap;
+
+  background-color: var(--color-accent);
+  border: 2px solid transparent;
+  border-radius: 9px;
+
+  transition: background-color var(--transition-duration), color var(--transition-duration), border var(--transition-duration);
+
+  @include tablet {
+    @include fontT3;
+  }
+
+  @include mobile {
+    max-width: 100%;
+  }
+
+  @include hover {
+    color: var(--color-light);
+    text-decoration: none;
+
+    background-color: var(--color-accent-secondary);
+    border-color: var(--color-accent-secondary);
+  }
+
+  &--blue-white {
+    color: var(--color-accent);
+
+    background-color: var(--color-light);
+    border-color: var(--color-accent);
+  }
+
+  &--white {
+    color: var(--color-dark);
+
+    background-color: var(--color-light);
+  }
+
+  &--white-ghost {
+    color: var(--color-light);
+
+    background-color: transparent;
+    border-color: var(--color-light);
+  }
+
+  &--blue-ghost {
+    color: var(--color-accent);
+
+    background-color: transparent;
+    border-color: var(--color-accent);
+  }
+}

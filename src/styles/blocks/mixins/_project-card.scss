@@ -1,0 +1,87 @@
+@use '../../base/helpers' as *;
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px 20px 40px;
+
+  background-color: var(--color-light);
+  border-radius: 30px;
+
+  @include tablet {
+    padding: 20px;
+
+    border-radius: 15px;
+  }
+
+  &__image {
+    position: relative;
+
+    margin-bottom: 20px;
+
+    @include tablet {
+      background-color: var(--color-gray-transparent);
+      border-radius: 10px;
+    }
+
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  &__tag {
+    @include fontT2;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+    padding: 3px 11px;
+
+    color: var(--color-gray);
+    white-space: nowrap;
+
+    background-color: var(--color-light);
+    border: 1px solid var(--color-gray);
+    border-radius: 55px;
+
+    @include tablet {
+      @include fontT3;
+    }
+  }
+
+  &__title {
+    @include fontH2;
+
+    @include tablet {
+      @include fontH3;
+    }
+  }
+
+  &__description {
+    @include fontT2;
+    margin-top: 20px;
+
+    color: var(--color-gray);
+
+    @include tablet {
+      @include fontT4;
+    }
+  }
+
+  &__content {
+    margin-bottom: 40px;
+
+    @include tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+  }
+
+  &__button {
+
+  }
+}

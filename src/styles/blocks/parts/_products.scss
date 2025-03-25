@@ -1,0 +1,35 @@
+@use '../../base/helpers' as *;
+
+.products {
+  &__cell {
+    .swiper-pagination {
+      @include tablet-above {
+        display: none;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 0 20px;
+    margin-top: auto;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__load-more-button {
+
+  }
+}

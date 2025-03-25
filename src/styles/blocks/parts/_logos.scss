@@ -1,0 +1,14 @@
+@use '../../base/helpers' as *;
+
+.logos {
+  &__wrapper {
+    padding: 20px 0;
+
+    background: var(--background-violet-gradient);
+    border-radius: 20px;
+
+    @include tablet {
+      border-radius: 15px;
+    }
+  }
+}

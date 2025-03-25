@@ -1,0 +1,63 @@
+section.products.container#products
+  .products__wrapper
+    +box-header({
+      title: 'Наши продукты',
+      description: 'Описание данного блока, помогающее  клиенту понять всю ценность и важность проделываемой работы.'
+    })
+      .products__navigation
+        +arrow-button({ direction: 'left' }).swiper-element-products__prev
+        +arrow-button().swiper-element-products__next
+
+    .products__cell
+      +slider({
+        isDisableDesktop: false
+      }).swiper-element-products
+        .swiper-slide
+          +product-card({
+            title: 'Диагностика',
+            description: 'Мы проводим комплексную диагностику бизнеса, Мы проводим комплексную диагностику бизнеса, чтобы выявить зоны роста и определить приоритетные шаги для повышения зрелости компании.',
+            linkName: 'Подробнее',
+            bg: 'img/blot.svg',
+            href: '#'
+          })
+        .swiper-slide
+          +product-card({
+            title: 'Диагностика',
+            description: 'Мы проводим комплексную диагностику бизнеса, чтобы выявить зоны роста и определить приоритетные шаги для повышения зрелости компании.',
+            linkName: 'Подробнее',
+            bg: 'img/blot.svg',
+            href: '#'
+          })
+        .swiper-slide
+          +product-card({
+            title: 'Диагностика',
+            description: 'Мы проводим комплексную диагностику бизнеса, чтобы выявить зоны роста и определить приоритетные шаги для повышения зрелости компании.',
+            linkName: 'Подробнее',
+            bg: 'img/blot.svg',
+            href: '#'
+          })
+        //
+        //.swiper-slide
+        //  +product-card({
+        //    title: 'Диагностика',
+        //    description: 'Мы проводим комплексную диагностику бизнеса, чтобы выявить зоны роста и определить приоритетные шаги для повышения зрелости компании.',
+        //    linkName: 'Подробнее',
+        //    bg: 'img/blot.svg',
+        //    href: '#'
+        //  })
+        //.swiper-slide
+        //  +product-card({
+        //    title: 'Диагностика',
+        //    description: 'Мы проводим комплексную диагностику бизнеса, чтобы выявить зоны роста и определить приоритетные шаги для повышения зрелости компании.',
+        //    linkName: 'Подробнее',
+        //    bg: 'img/blot.svg',
+        //    href: '#'
+        //  })
+        //.swiper-slide
+        //  +product-card({
+        //    title: 'Диагностика',
+        //    description: 'Мы проводим комплексную диагностику бизнеса, чтобы выявить зоны роста и определить приоритетные шаги для повышения зрелости компании.',
+        //    linkName: 'Подробнее',
+        //    bg: 'img/blot.svg',
+        //    href: '#'
+        //  })

@@ -1,0 +1,23 @@
+section.team.container#team(data-aos="fade-up")
+  .team__wrapper
+    .team__content
+      h2.team__title Команда Faust Consulting
+      .team__description Мы отличаемся от большинства консультантов практическим опытом. Всё, о чём мы говорим, мы проживали сами в разных компаниях.
+        | Помимо красивых фреймворков мы хорошо знаем лучших экспертов индустрии, готовых подключиться к решению ваших задач.
+      .team__buttons
+        +button({
+          text: 'Наша команда',
+          href: '#team',
+          view: 'white'
+        })
+        +button({
+          text: 'Напишите нам',
+          href: '#callback',
+          view: 'white-ghost'
+        })
+    .team__graph
+      img.team__graph-image(src='img/graph-flower.png')
+      .team__graph-points
+        span.team__graph-tag Цели
+        span.team__graph-tag Люди
+        span.team__graph-tag Смыслы

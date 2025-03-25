@@ -1,0 +1,5 @@
+mixin button(props)
+  - var tag = props.href ? 'a' : 'button'
+  - var type = props.type || null;
+  - var viewClass = props.view ? `button--${props.view}` : ''
+  #{tag}(class=`button ${viewClass}`, href=props.href, type=type)&attributes(attributes)= props.text

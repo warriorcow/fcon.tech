@@ -1,0 +1,68 @@
+@use '../../base/helpers' as *;
+
+.el-checkbox {
+  position: relative;
+
+  display: flex;
+
+  color: var(--color-light-transparent-60);
+
+  user-select: none;
+
+  &__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__checkbox {
+    position: relative;
+    top: 3px;
+
+    display: block;
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 1px;
+  }
+
+  &__input:checked + &__checkbox {
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      width: 9px;
+      height: 9px;
+
+      background: url("../img/icon-check.svg") no-repeat center / contain;
+      transform: translate(-50%, -50%);
+
+      content: '';
+    }
+  }
+
+  &__input.invalid + &__checkbox {
+    background-color: var(--color-danger-transparent);
+    border-color: var(--color-danger);
+  }
+
+  &__label {
+    @include fontT1;
+
+    margin-left: 12px;
+
+    @include tablet {
+      @include fontT3;
+    }
+  }
+}
