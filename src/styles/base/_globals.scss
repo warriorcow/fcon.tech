@@ -52,8 +52,6 @@ html {
 body {
   //@include fluid-text(18, 14);
 
-  min-width: rem($minViewportWidth);
-
   color: var(--color-dark);
   font-family: var(--font-family-base);
 
@@ -61,11 +59,9 @@ body {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  gap: 80px 0;
-  margin-top: 80px;
+  & > * {
+    margin-top: 80px;
+  }
 }
 
 .container {
@@ -81,12 +77,6 @@ main {
   @include mobile {
     padding-inline: 10px;
   }
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
 }
 
 h1, h2, h3, h4 {

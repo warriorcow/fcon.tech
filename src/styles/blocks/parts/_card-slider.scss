@@ -1,0 +1,59 @@
+@use '../../base/helpers' as *;
+
+.card-slider {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+
+  &__slider {
+    position: relative;
+    width: 100%;
+    min-height: 440px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 0 20px;
+    width: 100%;
+    min-height: 440px;
+    padding: 40px;
+    background-color: var(--color-light);
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+  }
+
+  &__content {
+    max-width: 750px;
+  }
+
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  &__title {
+    @include fontH2;
+  }
+
+  &__list {
+    @include fontT2;
+
+    margin-top: 24px;
+    padding-left: 30px;
+    list-style: disc;
+
+    li {
+      &:not(:first-child) {
+        margin-top: 14px;
+      }
+    }
+  }
+}

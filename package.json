@@ -104,6 +104,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
+    "gsap": "^3.12.7",
     "highlight.js": "^11.11.0",
     "imask": "^7.6.1",
     "inputmask": "^5.0.9",
