@@ -2,12 +2,11 @@
 
 .button {
   @include fontT1;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  width: 100%;
-  max-width: 250px;
+  min-width: 250px;
   padding: 10px 20px;
 
   color: var(--color-light);
@@ -24,7 +23,7 @@
   }
 
   @include mobile {
-    max-width: 100%;
+    min-width: 100%;
   }
 
   @include hover {

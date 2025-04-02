@@ -1,0 +1,98 @@
+@use '../../base/helpers' as *;
+
+.inner-banner {
+  display: flex;
+  gap: 0 40px;
+
+  @include tablet {
+    gap: 0 75px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    gap: 80px 0;
+  }
+
+  &__main {
+    position: relative;
+    min-width: 400px;
+
+    @include tablet {
+      min-width: 258px;
+    }
+
+    @include mobile {
+      text-align: center;
+      padding-top: 74px;
+      padding-bottom: 47px;
+    }
+  }
+
+  &__title {
+    @include fontH1;
+
+    @include tablet {
+      @include fontH4;
+    }
+  }
+
+  &__date {
+    @include fontH3;
+
+    color: var(--color-accent-alt);
+    margin-top: 20px;
+
+    @include tablet {
+      @include fontT1;
+
+      margin-top: 12px;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: -37px;
+    left: 0;
+    z-index: -1;
+
+    @include tablet {
+      top: -64px;
+    }
+
+    @include mobile {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      object-fit: contain;
+    }
+  }
+
+  &__button {
+    margin-top: 40px;
+
+    @include tablet {
+      margin-top: 43px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+  }
+
+  &__card {
+    @include fontT2;
+
+    border-radius: 30px;
+    padding: 40px;
+    background-color: var(--color-light);
+
+    @include tablet {
+      @include fontT3;
+
+      border-radius: 15px;
+      padding: 20px;
+    }
+  }
+}

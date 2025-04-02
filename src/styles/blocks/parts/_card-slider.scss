@@ -1,15 +1,15 @@
 @use '../../base/helpers' as *;
 
 .card-slider {
-  height: 100vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   background-position: center;
   background-size: cover;
   position: relative;
-  overflow: hidden;
 
   &__slider {
+    //margin-top: 20vh;
     position: relative;
     width: 100%;
     min-height: 440px;

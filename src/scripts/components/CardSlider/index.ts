@@ -18,7 +18,7 @@ export const initCardSlider = (): void => {
     animation: tl,
     id: "st",
     trigger: container,
-    start: "top top",
+    start: "-250vh top",
     end: "+=" + container.clientHeight * (slides.length - 1),
     pin: container,
     scrub: true,
