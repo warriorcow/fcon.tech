@@ -1,11 +1,13 @@
 mixin slider(props)
-  - var isDisableDesktop = props.isDisableDesktop;
+  - var isDisableDesktop = props.isDisableDesktop || false;
   - var showMoreButton = props.isDisableDesktop || false;
+  - var isSingle = props.isSingle || false;
 
   .swiper(
     class=(isDisableDesktop ? `swiper--disable-desktop` : ''),
     data-slides-per-view=props.slidesPerView,
-    data-show-more=showMoreButton
+    data-show-more=`${showMoreButton}`
+    data-is-single=`${isSingle}`
   )&attributes(attributes)
     .swiper-wrapper
       if block

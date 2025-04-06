@@ -14,7 +14,6 @@
 
   @include tablet-above {
     grid-template-rows: 1fr;
-
   }
 }
 
@@ -100,6 +99,13 @@
 
   @include tablet {
     @include fontH3;
+  }
+
+  span {
+    @include mobile {
+      display: block;
+      max-width: 235px;
+    }
   }
 }
 

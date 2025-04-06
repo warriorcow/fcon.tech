@@ -1,11 +1,11 @@
 .arrow-button {
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
   width: 43px;
   height: 46px;
+  flex-shrink: 0;
 
   background-color: var(--color-light);
   border-radius: 10px;

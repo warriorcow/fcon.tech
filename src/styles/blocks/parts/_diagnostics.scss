@@ -1,0 +1,41 @@
+@use '../../base/helpers' as *;
+
+.diagnostics {
+  &__content {
+    display: flex;
+    align-items: center;
+    max-width: 1036px;
+    gap: 0 20px;
+    margin-top: 20px;
+  }
+
+  &__title {
+    @include fontH2;
+
+    @include tablet {
+      @include fontH4;
+    }
+  }
+
+  &__slide {
+    overflow: hidden;
+    border-radius: 30px;
+    height: 512px;
+
+    @include tablet {
+      height: auto;
+    }
+  }
+
+  .swiper {
+    overflow: hidden;
+    border-radius: 30px;
+  }
+
+  .swiper-element-diagnostics__prev,
+  .swiper-element-diagnostics__next {
+    @include tablet {
+      display: none;
+    }
+  }
+}

@@ -86,11 +86,12 @@ export const sliderInit = (): void => {
         }
 
         if (!swiper) {
-          const slidesPerView = Number(swiperEl.dataset.slidesPerView) || 3;
+          const isSingle = swiperEl.dataset.isSingle === 'true' || false;
+          const slidesPerView = isSingle ? 1 : Number(swiperEl.dataset.slidesPerView) || 3;
 
           swiper = new Swiper(swiperEl, {
             modules: [Pagination, Navigation],
-            slidesPerView: 1.2,
+            slidesPerView: isSingle ? 1 : 1.2,
             speed: 400,
             spaceBetween: 20,
             pagination: {
@@ -102,11 +103,11 @@ export const sliderInit = (): void => {
             },
             breakpoints: {
               768: {
-                slidesPerView: 2,
+                slidesPerView: isSingle ? 1 : 2,
                 spaceBetween: 20
               },
               1100: {
-                slidesPerView,
+                slidesPerView: isSingle ? 1 : slidesPerView,
                 spaceBetween: 30
               },
             },

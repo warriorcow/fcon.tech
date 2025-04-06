@@ -15,9 +15,11 @@
   &__item {
     position: absolute;
     top: 0;
+    opacity: 0;
 
     @include tablet {
       position: static;
+      opacity: 1;
     }
   }
 
@@ -58,6 +60,8 @@
     list-style: disc;
 
     @include tablet {
+      @include fontT3;
+
       padding-top: 10px;
     }
 

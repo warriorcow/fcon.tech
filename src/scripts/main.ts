@@ -9,6 +9,7 @@ import { initCallbackForm } from '@/components/Callback'
 import { initInputs } from '@/components/Input'
 import { initScrollUp } from '@/components/ScrollUp'
 import { initCardSlider } from '@/components/CardSlider'
+import { initFancybox } from '@/components/Fancybox'
 
 initHeaderMenu();
 marqueeLine();
@@ -17,6 +18,7 @@ initCallbackForm();
 initInputs();
 initScrollUp();
 initCardSlider();
+initFancybox();
 
 AOS.init({
   once: true

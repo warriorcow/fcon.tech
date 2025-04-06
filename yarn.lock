@@ -896,6 +896,11 @@
   dependencies:
     levn "^0.4.1"
 
+"@fancyapps/ui@^5.0.36":
+  version "5.0.36"
+  resolved "https://registry.npmjs.org/@fancyapps/ui/-/ui-5.0.36.tgz"
+  integrity sha512-GMygQzp1MBTFNTT6AzpbL6pXTD6bTxwjmmpI1fe8Ozmmiseu8/g82Sudl1YhcbZmS4bJgaBOF5THDFGpXQ1fDw==
+
 "@gulpjs/messages@^1.1.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@gulpjs/messages/-/messages-1.1.0.tgz"
