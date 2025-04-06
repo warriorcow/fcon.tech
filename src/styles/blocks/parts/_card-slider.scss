@@ -8,24 +8,30 @@
   background-size: cover;
   position: relative;
 
-  &__slider {
-    //margin-top: 20vh;
-    position: relative;
-    width: 100%;
-    min-height: 440px;
+  @include tablet {
+    height: auto;
   }
 
   &__item {
-    display: flex;
-    gap: 0 20px;
-    width: 100%;
-    min-height: 440px;
-    padding: 40px;
-    background-color: var(--color-light);
-    border-radius: 30px;
     position: absolute;
     top: 0;
-    opacity: 0;
+
+    @include tablet {
+      position: static;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    width: 100%;
+    min-height: 440px;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 20px 0;
+      min-height: auto;
+    }
   }
 
   &__content {
@@ -37,18 +43,23 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-  }
 
-  &__title {
-    @include fontH2;
+    @include tablet {
+      width: 183px;
+      flex-shrink: 0;
+    }
   }
 
   &__list {
     @include fontT2;
 
-    margin-top: 24px;
+    padding-top: 24px;
     padding-left: 30px;
     list-style: disc;
+
+    @include tablet {
+      padding-top: 10px;
+    }
 
     li {
       &:not(:first-child) {

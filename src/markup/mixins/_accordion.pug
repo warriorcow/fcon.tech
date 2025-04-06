@@ -1,0 +1,11 @@
+mixin accordion(props)
+  .accordion&attributes(attributes)
+    .accordion-item
+      input.accordion-trigger-input(type='checkbox', id=`accordion-trigger-${props.id}`)
+      label.accordion-trigger(for=`accordion-trigger-${props.id}`)= props.title
+      section.accordion-animation-wrapper
+        .accordion-animation
+          .accordion-transform-wrapper
+            .accordion-content
+              if block
+                block

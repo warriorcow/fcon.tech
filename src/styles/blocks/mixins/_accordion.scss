@@ -1,0 +1,166 @@
+@use '../../base/helpers' as *;
+
+:root {
+  --transitionLength: 0.3s;
+  --transitionTiming: ease-in-out;
+}
+
+.accordion-animation-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  margin-top: 10px;
+  transition: grid-template-rows var(--transitionLength) var(--transitionTiming);
+
+  @include tablet-above {
+    grid-template-rows: 1fr;
+
+  }
+}
+
+.accordion-trigger-input:checked ~ .accordion-animation-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.accordion-animation {
+  min-height: 0;
+}
+
+.accordion-transform-wrapper {
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform var(--transitionLength) var(--transitionTiming), visibility 0s var(--transitionLength) var(--transitionTiming);
+
+  @include tablet-above {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform var(--transitionLength) var(--transitionTiming), visibility 0s linear;
+  }
+}
+
+.accordion-trigger-input:checked ~ .accordion-animation-wrapper .accordion-transform-wrapper {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform var(--transitionLength) var(--transitionTiming), visibility 0s linear;
+}
+
+/* Margins inside the container will throw animation height calculations off, better use paddings */
+.accordion-content * {
+  margin: 0;
+}
+
+.accordion {
+  min-width: 320px;
+  width: 100%;
+
+  @include tablet-above {
+  }
+}
+
+.accordion-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0 20px;
+  width: 100%;
+  position: static;
+  min-height: auto;
+  padding: 40px;
+  background-color: var(--color-light);
+  border-radius: 30px;
+  opacity: 1;
+  border: 2px solid #E9EBFF;
+  box-shadow: 0 4px 17.4px #E9EBFF;
+
+  @include tablet {
+    padding: 20px 20px 10px;
+    border-radius: 15px;
+  }
+}
+
+.accordion-trigger-input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+.accordion-trigger {
+  @include fontH2;
+
+  display: block;
+  position: relative;
+  transition: box-shadow var(--transitionLength) var(--transitionTiming);
+  z-index: 1;
+  cursor: pointer;
+  color: #0C0D0D;
+
+  @include tablet {
+    @include fontH3;
+  }
+}
+
+.accordion-trigger-input:focus-visible ~ .accordion-trigger {
+  outline: 2px solid;
+  outline-offset: -2px;
+}
+
+.accordion-trigger::after {
+  display: block;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  content: '';
+  width: 19px;
+  height: 30px;
+  background-image: url('../img/arrow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform var(--transitionLength) var(--transitionTiming);
+
+  @include tablet-above {
+    display: none;
+  }
+}
+
+.accordion-trigger-input:checked ~ .accordion-trigger::after {
+  transform: translateY(-50%) rotate(270deg);
+}
+
+.accordion-trigger-input:checked ~ .accordion-trigger {
+  transition: box-shadow calc(var(--transitionLength) / 4) var(--transitionTiming);
+}
+
+.accordion-content {
+  display: flex;
+  gap: 20px;
+
+  @include tablet {
+    padding-bottom: 10px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.accordion-content h2 {
+  padding-bottom: 0.75em;
+}
+
+.accordion-content p {
+  padding-bottom: 1.5em;
+}
+
+.accordion-content p:last-of-type {
+  padding-bottom: 0;
+}
+
+.accordion-content img {
+  max-width: 100%;
+}

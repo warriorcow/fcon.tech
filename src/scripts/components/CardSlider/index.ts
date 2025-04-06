@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 export const initCardSlider = (): void => {
+  if (window.innerWidth < 1100) return;
   if (!document.querySelector(".card-slider")) return;
 
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -30,7 +31,6 @@ export const initCardSlider = (): void => {
   });
 
   gsap.set(slides, {
-    xPercent: () => (window.innerWidth < 768 ? 125 : 0),
     yPercent: () => (window.innerWidth > 768 ? 125 : 0),
     scale: 0.5,
     opacity: 0,
@@ -53,7 +53,6 @@ export const initCardSlider = (): void => {
           {
             opacity: 0,
             yPercent: () => (window.innerWidth > 768 ? -125 : 0),
-            xPercent: () => (window.innerWidth < 768 ? -125 : 0),
             scale: 0.5,
           },
           "<"
