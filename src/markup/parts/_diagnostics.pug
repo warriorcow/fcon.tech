@@ -3,7 +3,8 @@ section.diagnostics.container
   .diagnostics__content
     +arrow-button({ direction: 'left' }).swiper-element-diagnostics__prev
     +slider({
-      isSingle: true
+      isSingle: true,
+      hasPagination: true
     }).swiper-element-diagnostics
       .swiper-slide.diagnostics__slide
         +fancybox({

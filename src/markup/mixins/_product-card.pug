@@ -1,10 +1,11 @@
 mixin product-card(props)
-  .product-card
-    .product-card__bg
-      img(src=props.bg)
-    .product-card__content
-      .product-card__title= props.title
-      .product-card__description= props.description
-    a.product-card__link(href=props.href)= props.linkName
+  a.product-card(href=props.href)
+    .product-card__wrapper
+      .product-card__bg
+        img(src=props.bg)
+      .product-card__content
+        .product-card__title= props.title
+        .product-card__description= props.description
+      .product-card__link= props.linkName
 
 

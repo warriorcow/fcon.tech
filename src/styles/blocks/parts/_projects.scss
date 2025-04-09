@@ -2,6 +2,11 @@
 
 .projects {
   &__cell {
+    @include mobile-above {
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
     .swiper-wrapper {
       @include tablet-above {
         display: grid;

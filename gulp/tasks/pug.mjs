@@ -7,7 +7,7 @@
  */
 
 // Библиотеки
-import { dest, series, src, watch } from 'gulp' // gulp плагин
+import { dest, series, src, watch } from 'gulp'
 import pug from 'gulp-pug' // шаблонизатор pug
 import plumber from 'gulp-plumber' // перехватывает ошибки
 import notify from 'gulp-notify' // уведомляет об ошибках

@@ -38,7 +38,7 @@ export function marqueeLine() {
       const contentWidth: number = content.scrollWidth; // Ширина всего контента
 
       // Устанавливаем длительность анимации
-      const speed: number = 50; // Скорость в пикселях в секунду (можно настроить)
+      const speed: number = 25; // Скорость в пикселях в секунду (можно настроить)
       const duration: number = contentWidth / speed; // Длительность анимации
 
       // Применяем длительность анимации

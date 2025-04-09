@@ -33,10 +33,9 @@
     background-color: #fff;
     border: 1px solid transparent;
     border-radius: 1px;
-  }
 
-  &__input:checked + &__checkbox {
     &:before {
+      display: none;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -45,9 +44,23 @@
       height: 9px;
 
       background: url("../img/icon-check.svg") no-repeat center / contain;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -45%);
 
       content: '';
+    }
+  }
+
+
+  &__input:checked + &__checkbox {
+    &:before {
+      display: block;
+    }
+  }
+
+  &__input:not(:checked):hover + &__checkbox {
+    &:before {
+      display: block;
+      opacity: 0.2;
     }
   }
 

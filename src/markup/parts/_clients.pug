@@ -10,7 +10,8 @@ section.clients.container#clients
     .clients__cell
       +slider({
         slidesPerView: 2,
-        isDisableDesktop: false
+        isDisableDesktop: false,
+        hasPagination: true
       }).swiper-element-clients
         .swiper-slide
           +client-card({

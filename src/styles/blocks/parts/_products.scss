@@ -2,10 +2,9 @@
 
 .products {
   &__cell {
-    .swiper-pagination {
-      @include tablet-above {
-        display: none;
-      }
+    @include mobile-above {
+      overflow: hidden;
+      border-radius: 30px;
     }
   }
 

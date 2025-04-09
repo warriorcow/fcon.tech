@@ -21,7 +21,7 @@
 }
 
 @mixin tablet {
-  @media (width <= rem($tablet)) {
+  @media (width < rem($tablet)) {
     @content;
   }
 }
@@ -33,7 +33,7 @@
 }
 
 @mixin mobile {
-  @media (width <= rem($mobile)) {
+  @media (width < rem($mobile)) {
     @content;
   }
 }

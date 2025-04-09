@@ -15,10 +15,12 @@ export const initCallbackForm = (): void => {
     formData.append('action', 'sendform');
 
     try {
-      const response = await fetch('/wp-admin/admin-ajax.php', {
+      const response = await fetch('/local/ajax/forms.php', {
         method: 'POST',
         body: formData,
       });
+
+      console.log(formData)
 
       if (!response.ok) throw new Error(`Ошибка HTTP: ${response.status}`);
 
@@ -32,17 +34,17 @@ export const initCallbackForm = (): void => {
 
   new JustValidate(formElClass, {
     errorLabelCssClass: 'el-input__error-message',
-    errorFieldCssClass: 'invalid',
+    errorFieldCssClass: 'invalid'
   })
     .addField('#name', [
-      { rule: Rules.Required, errorMessage: 'Это поле не может быть пустым.' },
+      { rule: Rules.Required, errorMessage: 'Проверьте заполнение поля' },
     ])
     .addField('#phone', [
-      { rule: Rules.Required, errorMessage: 'Это поле не может быть пустым.' },
+      { rule: Rules.Required, errorMessage: 'Проверьте заполнение поля' },
       { rule: Rules.CustomRegexp, value: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, errorMessage: 'Некорректный номер телефона' },
     ])
     .addField('#email', [
-      { rule: Rules.Required, errorMessage: 'Обязательное поле' },
+      { rule: Rules.Required, errorMessage: 'Проверьте заполнение поля' },
       { rule: Rules.Email, errorMessage: 'Введите корректный email-адрес' },
     ])
     .addField('#policy', [

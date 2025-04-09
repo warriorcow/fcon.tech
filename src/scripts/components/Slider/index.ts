@@ -96,6 +96,7 @@ export const sliderInit = (): void => {
             spaceBetween: 20,
             pagination: {
               el: swiperEl.querySelector('.swiper-pagination') as HTMLElement,
+              clickable: true
             },
             navigation: {
               nextEl: `.${Array.from(swiperEl.classList).find(className => className.startsWith('swiper-element'))}__next`,

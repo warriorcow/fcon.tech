@@ -30,9 +30,12 @@ section.callback.container#callback
         +checkbox({
           id: 'policy',
           label: 'Электронная почта',
+          isChecked: true,
           errorMessage: 'Поле заполнено некорректно, проверьте'
         }).callback__checkbox
-          | Я принимаю условия политики конфиденциальности.
+          | Я принимаю
+          |
+          a(href="#") условия политики конфиденциальности.
 
         +button({
           text: 'Отправить запрос',

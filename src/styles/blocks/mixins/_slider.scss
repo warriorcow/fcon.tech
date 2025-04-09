@@ -17,7 +17,7 @@
     position: relative;
     bottom: 0 !important;
 
-    display: flex;
+    display: none;
     justify-content: center;
     margin-top: 20px;
 
@@ -32,6 +32,16 @@
       &-active {
         background-color: var(--color-accent);
       }
+    }
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &--has-pagination {
+    #{$swiper}-pagination {
+      display: flex;
     }
   }
 

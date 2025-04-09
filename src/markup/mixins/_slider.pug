@@ -2,10 +2,11 @@ mixin slider(props)
   - var isDisableDesktop = props.isDisableDesktop || false;
   - var showMoreButton = props.isDisableDesktop || false;
   - var isSingle = props.isSingle || false;
+  - var hasPagination = props.hasPagination || false;
 
   .swiper(
-    class=(isDisableDesktop ? `swiper--disable-desktop` : ''),
-    data-slides-per-view=props.slidesPerView,
+    class=([isDisableDesktop ? 'swiper--disable-desktop' : '', hasPagination ? 'swiper--has-pagination' : ''])
+    data-slides-per-view=props.slidesPerView
     data-show-more=`${showMoreButton}`
     data-is-single=`${isSingle}`
   )&attributes(attributes)

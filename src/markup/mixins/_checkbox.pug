@@ -1,6 +1,8 @@
 mixin checkbox(props)
+  - var isChecked = props.isChecked || false;
+
   label.el-checkbox&attributes(attributes)
-    input.el-checkbox__input(type="checkbox", required=props.required, id=props.id)
+    input.el-checkbox__input(type="checkbox", checked=isChecked, required=props.required, id=props.id)
     span.el-checkbox__checkbox
     if props.label
       span.el-checkbox__label

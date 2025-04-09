@@ -35,6 +35,11 @@
 
       background-color: var(--color-danger-transparent);
       border-color: var(--color-danger);
+
+      &:focus {
+        background-color: var(--color-light-transparent-20);
+        color: var(--color-light);
+      }
     }
 
     &:-webkit-autofill {
@@ -53,6 +58,6 @@
 
     display: inline-block;
 
-    color: var(--color-danger-alt);
+    color: var(--color-danger-alt) !important;
   }
 }

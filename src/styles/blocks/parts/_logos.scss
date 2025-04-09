@@ -4,8 +4,8 @@
   &__wrapper {
     padding: 20px 0;
 
-    background: var(--background-violet-gradient);
     border-radius: 20px;
+    background: var(--background-violet-gradient);
 
     @include tablet {
       border-radius: 15px;

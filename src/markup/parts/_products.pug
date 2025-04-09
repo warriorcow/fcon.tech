@@ -10,7 +10,8 @@ section.products.container#products
 
     .products__cell
       +slider({
-        isDisableDesktop: false
+        isDisableDesktop: false,
+        hasPagination: true
       }).swiper-element-products
         .swiper-slide
           +product-card({

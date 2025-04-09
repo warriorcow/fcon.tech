@@ -3,7 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 export const initCardSlider = (): void => {
-  if (window.innerWidth < 1100) return;
   if (!document.querySelector(".card-slider")) return;
 
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -11,6 +10,16 @@ export const initCardSlider = (): void => {
   const container = document.querySelector(".card-slider") as HTMLElement | null;
   const slides = gsap.utils.toArray(".card-slider__item") as HTMLElement[];
   const tl = gsap.timeline();
+
+  if (window.innerWidth < 1100) {
+    const firstSlideAccordion = slides[0].querySelector('.accordion-trigger-input');
+
+    if (firstSlideAccordion) {
+      firstSlideAccordion.setAttribute('checked', 'checked');
+    }
+
+    return;
+  }
 
   if (!container) return;
   if (slides.length === 0) return;
