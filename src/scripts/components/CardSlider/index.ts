@@ -1,75 +1,75 @@
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-
 export const initCardSlider = (): void => {
-  if (!document.querySelector(".card-slider")) return;
+  const HEADER_GAP = 140;
+  const PIN_GAP = 100;
+  const STICKY_TOP = HEADER_GAP + PIN_GAP * 2;
 
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+  let scrollHandler: (() => void) | null = null;
 
-  const container = document.querySelector(".card-slider") as HTMLElement | null;
-  const slides = gsap.utils.toArray(".card-slider__item") as HTMLElement[];
-  const tl = gsap.timeline();
+  const setupSticky = () => {
+    const cards = document.querySelectorAll('.card-slider__item') as NodeListOf<HTMLElement>;
+    const triggerScrolls: (number | null)[] = [];
 
-  if (window.innerWidth < 1100) {
-    const firstSlideAccordion = slides[0].querySelector('.accordion-trigger-input');
+    scrollHandler = () => {
+      cards.forEach((card, i) => {
+        if (i === 0) {
+          card.style.top = `${HEADER_GAP}px`;
+        }
 
-    if (firstSlideAccordion) {
-      firstSlideAccordion.setAttribute('checked', 'checked');
+        if (i === 1) {
+          card.style.top = `${HEADER_GAP + PIN_GAP}px`;
+        }
+
+        if (i > 1) {
+          const prevCard = cards[i - 1];
+          const currentTop = card.getBoundingClientRect().top;
+
+          const stickyReached = currentTop <= STICKY_TOP;
+
+          if (stickyReached) {
+            if (triggerScrolls[i] == null) {
+              triggerScrolls[i] = window.scrollY;
+            }
+          } else {
+            triggerScrolls[i] = null;
+          }
+
+          if (triggerScrolls[i] != null) {
+            const scrollPassed = window.scrollY - triggerScrolls[i];
+            const targetTop = HEADER_GAP + PIN_GAP;
+
+            prevCard.style.top = `${Math.max(targetTop - scrollPassed, HEADER_GAP)}px`;
+            card.style.top = `${Math.max(targetTop - scrollPassed, HEADER_GAP + PIN_GAP)}px`;
+          }
+        }
+      });
+    };
+
+    document.addEventListener('scroll', scrollHandler);
+  };
+
+  const destroySticky = () => {
+    if (scrollHandler) {
+      document.removeEventListener('scroll', scrollHandler);
+      scrollHandler = null;
     }
+  };
 
-    return;
-  }
+  const handleInit = () => {
+    const isDesktop = window.innerWidth >= 1024;
+    const hasSlider = document.querySelector(".card-slider");
 
-  if (!container) return;
-  if (slides.length === 0) return;
+    if (!hasSlider) return;
 
-  ScrollTrigger.create({
-    animation: tl,
-    id: "st",
-    trigger: container,
-    start: "-250vh top",
-    end: "+=" + container.clientHeight * (slides.length - 1),
-    pin: container,
-    scrub: true,
-    snap: {
-      snapTo: 1 / (slides.length - 1),
-      delay: 0.01
-    },
-    markers: false
-  });
+    destroySticky();
 
-  gsap.set(slides, {
-    yPercent: () => (window.innerWidth > 768 ? 125 : 0),
-    scale: 0.5,
-    opacity: 0,
-  });
-
-  slides.forEach((item, i) => {
-    const previousItem = slides[i - 1];
-
-    if (previousItem) {
-      tl
-        .to(item, {  }, 0.5 * (i - 1))
-        .to(
-          item,
-          { opacity: 1, yPercent: 0, xPercent: 0, scale: 1 },
-          "<"
-        )
-        .to(previousItem, {  }, "<")
-        .to(
-          previousItem,
-          {
-            opacity: 0,
-            yPercent: () => (window.innerWidth > 768 ? -125 : 0),
-            scale: 0.5,
-          },
-          "<"
-        )
-        .add("our-work-" + (i + 1));
-    } else {
-      gsap.to(slides[i], { yPercent: 0, xPercent: 0, opacity: 1, scale: 1, duration: 0 });
-      tl.add("our-work-" + (i + 1), "+=0");
+    if (isDesktop) {
+      setupSticky();
     }
-  });
+  };
+
+  // Запуск при загрузке
+  window.addEventListener('DOMContentLoaded', handleInit);
+
+  // И при ресайзе (с debounce можно при желании)
+  window.addEventListener('resize', handleInit);
 };

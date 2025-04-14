@@ -1,7 +1,6 @@
 @use '../../base/helpers' as *;
 
 .card-slider {
-  height: 50vh;
   display: flex;
   align-items: center;
   background-position: center;
@@ -13,14 +12,14 @@
   }
 
   &__item {
-    position: absolute;
-    top: 0;
-    opacity: 0;
+    position: sticky;
     width: 100%;
+    margin-bottom: 20px;
 
     @include tablet {
       position: static;
       opacity: 1;
+      margin-bottom: 0;
     }
   }
 

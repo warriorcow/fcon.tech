@@ -79,6 +79,8 @@
   &__text {
     @include fontT2;
 
+    text-align: justify;
+
     @include tablet {
       @include fontT3;
     }
