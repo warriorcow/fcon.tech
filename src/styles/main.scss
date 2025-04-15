@@ -16,6 +16,7 @@
 @use "blocks/mixins/checkbox";
 @use "blocks/mixins/accordion";
 @use "blocks/mixins/fancybox";
+@use "blocks/mixins/tag";
 
 @use "blocks/parts/default/header";
 @use "blocks/parts/default/footer";
@@ -30,6 +31,9 @@
 @use "blocks/parts/card-slider";
 @use "blocks/parts/inner-banner";
 @use "blocks/parts/diagnostics";
+@use "blocks/parts/case-banner";
+@use "blocks/parts/path";
+@use "blocks/parts/result";
 
 @use 'base/utils';
 

@@ -80,6 +80,7 @@
     @include fontT2;
 
     text-align: justify;
+    max-width: 720px;
 
     @include tablet {
       @include fontT3;

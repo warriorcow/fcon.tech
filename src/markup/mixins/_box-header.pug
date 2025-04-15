@@ -1,5 +1,7 @@
 mixin box-header(props)
-  .box-header(data-aos="fade-up", data-aos-delay="100")
+  - var viewClass = props.view ? `box-header--${props.view}` : null;
+
+  .box-header(data-aos="fade-up", data-aos-delay="100", class=viewClass)
     .box-header__content
       h2.box-header__title= props.title
       if props.description

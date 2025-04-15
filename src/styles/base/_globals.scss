@@ -21,8 +21,10 @@
   --color-gray-header-transparent: rgba(244, 244, 246, 0.8);
   --color-light-gray: #F4F4F6;
   --color-accent: #4760F3;
+  --color-accent-transparent-30: color-mix(in srgb, var(--color-accent) 30%, transparent);
   --color-accent-secondary: #2D47E1;
   --color-accent-alt: #8082F4;
+  --color-accent-alt-2: #A8B5FF;
   --color-danger: #FF2C2C;
   --color-danger-alt: #FF8080;
   --color-danger-text: #FF9696;

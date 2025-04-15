@@ -2,13 +2,16 @@
 
 @use 'sass:math';
 @use 'functions' as *;
+@use 'media' as *;
 
 @mixin font-face($font-family, $url, $weight: normal, $style: normal) {
   @font-face {
     font-weight: $weight;
     font-family: '#{$font-family}';
     font-style: $style;
-    src: url('#{$url}.woff2') format('woff2');
+    src: url('#{$url}.ttf') format('truetype'),
+         url('#{$url}.woff2') format('woff2'),
+         url('#{$url}.woff') format('woff');
   }
 }
 
@@ -50,7 +53,6 @@
   left: 50%;
 
   translate: -50% 0;
-  //transform: translateX(-50%);
 }
 
 @mixin abs-y {
@@ -58,7 +60,6 @@
   top: 50%;
 
   translate: 0 -50%;
-  //transform: translateY(-50%);
 }
 
 @mixin square($size) {
@@ -170,7 +171,7 @@
 @mixin fontH3() {
   font-weight: 400;
   font-size: 1.5rem;
-  line-height: 115%;
+  line-height: 28px;
 }
 
 @mixin fontH4() {
@@ -201,4 +202,35 @@
   font-weight: 400;
   font-size: 1rem;
   line-height: 115%;
+}
+
+@mixin list() {
+  @include fontT2;
+
+  padding-top: 24px;
+  padding-left: 30px;
+  list-style: none;
+
+  @include tablet {
+    @include fontT3;
+
+    padding-top: 20px;
+  }
+
+  li {
+    position: relative;
+
+    &::before {
+      content: "•"; /* или другой символ */
+      position: absolute;
+      left: -18px;
+      top: 0;
+    }
+
+    &:not(:first-child) {
+      margin-top: 18px;
+    }
+  }
+
+  @content;
 }

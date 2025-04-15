@@ -32,6 +32,7 @@
 
   &__tag {
     @include fontT2;
+
     position: absolute;
     right: 10px;
     bottom: 10px;
@@ -79,9 +80,5 @@
 
   &__footer {
     margin-top: auto;
-  }
-
-  &__button {
-
   }
 }

@@ -1,0 +1,54 @@
+@use '../../base/helpers' as *;
+
+.path {
+  &__wrapper {}
+
+  &__steps {
+    background-color: var(--color-light);
+    padding: 40px;
+    border-radius: 30px;
+    display: flex;
+    gap: 20px clamp(16px, 2vw, 40px);
+
+    @include tablet {
+      flex-direction: column;
+      background-color: var(--color-light);
+      padding: 20px;
+    }
+  }
+
+  &__step {
+    display: flex;
+    flex-direction: column;
+    gap: 12px 0;
+    flex: 1;
+
+    &-title {
+      @include fontH3;
+
+      display: flex;
+      align-items: center;
+      gap: 0 10px;
+      color: var(--color-accent);
+
+      &::before {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        background: var(--color-light);
+        border-radius: 9999px;
+        border: 3px solid var(--color-accent-alt);
+        box-shadow: 0 0 0 2px #9DAAF5;
+      }
+    }
+
+    &-text {
+      @include fontT2;
+
+      @include tablet {
+        @include fontT4;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use '../../base/helpers' as *;
+
+.tag {
+  @include fontT1;
+
+  display: inline-flex;
+  padding: 8px 16px;
+
+  color: var(--color-gray);
+  white-space: nowrap;
+
+  background-color: var(--color-light);
+  border: 1px solid var(--color-gray);
+  border-radius: 55px;
+
+  @include tablet {
+    @include fontT3;
+  }
+}
