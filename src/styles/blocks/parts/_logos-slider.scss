@@ -1,0 +1,58 @@
+@use '../../base/helpers' as *;
+
+.logos-slider {
+  &__wrapper {
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 0 20px;
+    margin-top: auto;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__logo {
+    background-color: var(--color-accent-alt);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      object-fit: contain;
+      width: 150px;
+      height: 60px;
+      flex-shrink: 1;
+      padding: 35px 10px;
+      box-sizing: content-box;
+
+      @include tablet {
+        width: 101px;
+        height: 50px;
+        padding: 5px 10px;
+      }
+
+      @include mobile {
+        padding: 3px 5px;
+      }
+    }
+  }
+
+  &__slide {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+
+    @include tablet {
+      grid-gap: 20px;
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+    }
+  }
+}

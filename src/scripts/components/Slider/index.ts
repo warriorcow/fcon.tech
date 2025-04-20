@@ -1,34 +1,61 @@
 import Swiper from 'swiper';
-import { Pagination, Navigation } from 'swiper/modules'
+import { Pagination, Navigation } from 'swiper/modules';
 
 export const sliderInit = (): void => {
   const swiperEls = document.querySelectorAll('.swiper');
+
   swiperEls.forEach((swiperEl) => {
     if (!(swiperEl instanceof HTMLElement)) return;
 
-    let swiper: Swiper | null = null;
+    const autoGenerate = swiperEl.dataset.autoGenerate === 'true';
     const hasDisableClass = swiperEl.classList.contains('swiper--disable-desktop');
     const showMoreEnabled = swiperEl.classList.contains('swiper--disable-desktop');
-    const slides = swiperEl.querySelectorAll('.swiper-slide');
+
+    let swiper: Swiper | null = null;
     let visibleSlides = 3;
     let totalSlides = 0;
     let showMoreButton: HTMLElement | null = null;
 
-    slides.forEach((slide, index) => {
-      const slideElement = slide as HTMLElement;
-      const firstChild = slideElement.firstElementChild;
+    // Флаг для отслеживания текущего размера группы
+    let currentGroupSize = 0;
 
-      if (firstChild) {
-        firstChild.setAttribute('data-aos', 'fade-up');
-        firstChild.setAttribute('data-aos-delay', `${index * 200}`);
+    const generateSlides = (groupSize: number) => {
+      const wrapper = swiperEl.querySelector('.swiper-wrapper');
+      if (!wrapper) return;
+
+      const logos = Array.from(wrapper.querySelectorAll('.logos-slider__logo'));
+      if (logos.length === 0) return;
+
+      // Только если groupSize поменялся
+      if (currentGroupSize === groupSize && wrapper.querySelector('.swiper-slide')) return;
+
+      // Очистить wrapper
+      wrapper.innerHTML = '';
+
+      for (let i = 0; i < logos.length; i += groupSize) {
+        const swiperSlide = document.createElement('div');
+        swiperSlide.classList.add('swiper-slide');
+
+        const innerSlide = document.createElement('div');
+        innerSlide.classList.add('logos-slider__slide');
+
+        logos.slice(i, i + groupSize).forEach((logo) => {
+          innerSlide.appendChild(logo);
+        });
+
+        swiperSlide.appendChild(innerSlide);
+        wrapper.appendChild(swiperSlide);
       }
-    });
+
+      currentGroupSize = groupSize;
+    };
 
     const initShowMore = () => {
       if (!showMoreEnabled) return;
 
       const slides = swiperEl.querySelectorAll('.swiper-slide');
       totalSlides = slides.length;
+
       slides.forEach((slide, index) => {
         const slideEl = slide as HTMLElement;
         slideEl.style.display = index < visibleSlides ? 'block' : 'none';
@@ -51,7 +78,7 @@ export const sliderInit = (): void => {
             const slideEl = slide as HTMLElement;
             if (index >= previousVisibleSlides && index < visibleSlides) {
               slideEl.style.display = 'block';
-              slideEl.style.opacity = '0'; // Сначала делаем элемент невидимым
+              slideEl.style.opacity = '0';
 
               setTimeout(() => {
                 slideEl.classList.add('fade-in');
@@ -80,7 +107,6 @@ export const sliderInit = (): void => {
       const isDisabledAtDesktop = hasDisableClass && window.innerWidth >= 1100;
 
       if (!isDisabledAtDesktop) {
-        // Reset show more state if was active
         if (showMoreEnabled) {
           resetShowMore();
         }
@@ -124,14 +150,33 @@ export const sliderInit = (): void => {
             wrapper.style.transform = '';
           }
         }
-        // Initialize show more functionality
+
         if (showMoreEnabled) {
           initShowMore();
         }
       }
     };
 
-    initSwiper();
-    window.addEventListener('resize', initSwiper);
+    const handleResize = () => {
+      if (autoGenerate) {
+        const groupSize = window.innerWidth < 768 ? 9 : 10;
+        generateSlides(groupSize);
+      }
+
+      // Применить анимацию к новым слайдам
+      const slides = swiperEl.querySelectorAll('.swiper-slide');
+      slides.forEach((slide, index) => {
+        const firstChild = (slide as HTMLElement).firstElementChild;
+        if (firstChild) {
+          firstChild.setAttribute('data-aos', 'fade-up');
+          firstChild.setAttribute('data-aos-delay', `${index * 200}`);
+        }
+      });
+
+      initSwiper();
+    };
+
+    handleResize(); // первый запуск
+    window.addEventListener('resize', handleResize);
   });
 };

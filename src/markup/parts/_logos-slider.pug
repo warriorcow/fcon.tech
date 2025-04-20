@@ -1,0 +1,46 @@
+- var n = 10;
+
+section.logos-slider.container
+  .logos-slider__wrapper
+    +box-header({
+      title: 'Наши клиенты'
+    })
+      .logos-slider__navigation
+        +arrow-button({ direction: 'left' }).swiper-element-logos__prev
+        +arrow-button().swiper-element-logos__next
+
+    +slider({
+      slidesPerView: 1,
+      isDisableDesktop: false,
+      hasPagination: true,
+      autoGenerate: true,
+      isSingle: true
+    }).swiper-element-logos
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+      .logos-slider__logo
+        img(src="img/invest-lab-logo.svg")
+
+

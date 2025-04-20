@@ -3,12 +3,14 @@ mixin slider(props)
   - var showMoreButton = props.isDisableDesktop || false;
   - var isSingle = props.isSingle || false;
   - var hasPagination = props.hasPagination || false;
+  - var autoGenerate = props.autoGenerate || false;
 
   .swiper(
     class=([isDisableDesktop ? 'swiper--disable-desktop' : '', hasPagination ? 'swiper--has-pagination' : ''])
     data-slides-per-view=props.slidesPerView
     data-show-more=`${showMoreButton}`
     data-is-single=`${isSingle}`
+    data-auto-generate=`${autoGenerate}`
   )&attributes(attributes)
     .swiper-wrapper
       if block
