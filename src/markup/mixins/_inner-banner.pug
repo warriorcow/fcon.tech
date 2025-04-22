@@ -1,0 +1,18 @@
+mixin innerBanner({ title, date, button, cards })
+  section.inner-banner.container
+    .inner-banner__main
+      .inner-banner__title= title
+      .inner-banner__date= date
+      img.inner-banner__bg(src='img/blot-2.svg')
+      if button
+        +button({
+          text: button.text,
+          href: button.href,
+          view: button.view,
+          download: button.download
+        })(target=button.target || "_blank").inner-banner__button
+    .inner-banner__content
+      each card in cards
+        .inner-banner__card
+          each paragraph in card
+            p!= paragraph
