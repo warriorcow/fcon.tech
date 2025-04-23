@@ -5,7 +5,7 @@ mixin slider(props)
   - var hasPagination = props.hasPagination || false;
   - var autoGenerate = props.autoGenerate || false;
 
-  .swiper(
+  .swiper.swiper-default(
     class=([isDisableDesktop ? 'swiper--disable-desktop' : '', hasPagination ? 'swiper--has-pagination' : ''])
     data-slides-per-view=props.slidesPerView
     data-show-more=`${showMoreButton}`

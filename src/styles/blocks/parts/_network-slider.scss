@@ -1,0 +1,40 @@
+@use '../../base/helpers' as *;
+
+.network-slider {
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 40px;
+
+    @include tablet {
+      margin-top: 20px;
+    }
+  }
+
+  &__filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+
+    @include tablet {
+      gap: 10px;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 0 20px;
+    margin-top: auto;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

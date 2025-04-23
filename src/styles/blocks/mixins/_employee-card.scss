@@ -1,0 +1,105 @@
+@use '../../base/helpers' as *;
+
+.employee-card {
+  $self: &;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: var(--color-light);
+  border-radius: 30px;
+  padding: 30px;
+  height: 100%;
+  border: 2px solid transparent;
+  text-decoration: none !important;
+
+  &:hover {
+    border-color: var(--color-accent-secondary);
+
+    #{$self}__link {
+      text-decoration: underline;
+      color: var(--color-accent-secondary);
+    }
+  }
+
+  @include tablet {
+    padding: 20px;
+  }
+
+  &__image {
+    height: 313px;
+    border-radius: 20px;
+    overflow: hidden;
+    filter: grayscale(1);
+
+    @include tablet {
+      height: 294px;
+    }
+
+    @include mobile {
+      height: 260px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+  }
+
+  &__title {
+    @include fontH3;
+  }
+
+  &__subtitle {
+    @include fontT3;
+
+    color: var(--color-gray);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__tag {
+    @include fontT3;
+
+    padding: 5px 10px;
+    border-radius: 40px;
+    background-color: #E9EBFF;
+    color: var(--color-accent);
+  }
+
+  &__body {}
+
+  &__description {
+    @include fontT2;
+
+    @include tablet {
+      @include fontT4;
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+  }
+
+  &__link {
+    @include fontT2;
+
+    color: var(--color-accent);
+
+    @include tablet {
+      @include fontT3;
+    }
+  }
+}

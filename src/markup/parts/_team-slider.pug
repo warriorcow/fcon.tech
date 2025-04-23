@@ -1,0 +1,64 @@
+section.team-slider.container
+  .team-slider__wrapper
+    +box-header({
+      title: 'Наша команда',
+      description: 'Профессионалы, готовые решать ваши задачи',
+    })
+      .team-slider__navigation
+        +arrow-button({ direction: 'left' }).swiper-element-team-slider__prev
+        +arrow-button().swiper-element-team-slider__next
+
+
+    .team-slider__cell
+      +slider({
+        isDisableDesktop: false,
+        hasPagination: true
+      }).swiper-element-team-slider
+        .swiper-slide
+          +employee-card({
+            title: 'Сергей Щербинин',
+            description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
+            linkName: 'Подробнее',
+            image: 'img/owner.png',
+            href: 'inner.html'
+          })
+        .swiper-slide
+          +employee-card({
+            title: 'Мария Парахина',
+            description: 'Производственные процессы ИТ, системный и бизнес анализ.',
+            linkName: 'Подробнее',
+            image: 'img/owner.png',
+            href: 'inner.html'
+          })
+        .swiper-slide
+          +employee-card({
+            title: 'Виктор Цветков',
+            description: 'ИТ-архитектура, инфраструктура. ',
+            linkName: 'Подробнее',
+            image: 'img/owner.png',
+            href: 'inner.html'
+          })
+        .swiper-slide
+          +employee-card({
+            title: 'Сергей Щербинин',
+            description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
+            linkName: 'Подробнее',
+            image: 'img/owner.png',
+            href: 'inner.html'
+          })
+        .swiper-slide
+          +employee-card({
+            title: 'Мария Парахина',
+            description: 'Производственные процессы ИТ, системный и бизнес анализ.',
+            linkName: 'Подробнее',
+            image: 'img/owner.png',
+            href: 'inner.html'
+          })
+        .swiper-slide
+          +employee-card({
+            title: 'Виктор Цветков',
+            description: 'ИТ-архитектура, инфраструктура. ',
+            linkName: 'Подробнее',
+            image: 'img/owner.png',
+            href: 'inner.html'
+          })

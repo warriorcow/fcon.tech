@@ -1,11 +1,18 @@
 mixin box-header(props)
+  - var slots = {};
   - var viewClass = props.view ? `box-header--${props.view}` : null;
+
+  mixin slot(name)
+    - slots[name] = block
 
   .box-header(data-aos="fade-up", data-aos-delay="100", class=viewClass)
     .box-header__content
       h2.box-header__title= props.title
       if props.description
         p.box-header__description= props.description
+
+      if slots['header']
+        - slots['header']();
     .box-header__additional
       if block
         block

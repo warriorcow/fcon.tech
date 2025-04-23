@@ -1,0 +1,13 @@
+@use '../../base/helpers' as *;
+
+.team-slider {
+  &__navigation {
+    display: flex;
+    gap: 0 20px;
+    margin-top: auto;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

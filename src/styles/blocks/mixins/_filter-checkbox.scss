@@ -1,0 +1,42 @@
+@use '../../base/helpers' as *;
+
+.filter-checkbox {
+  $self: &;
+
+  @include fontT2;
+
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--color-light);
+  border-radius: 40px;
+  user-select: none;
+
+  @include tablet {
+    @include fontT3;
+
+    padding: 8px 12px;
+  }
+
+  &__input {
+    display: none;
+
+    &:checked + #{$self}__mark {
+      background: var(--color-accent);
+    }
+  }
+
+  &__mark {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--color-accent);
+    border-radius: 3px;
+    margin-right: 10px;
+
+    @include tablet {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}

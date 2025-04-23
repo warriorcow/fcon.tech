@@ -18,6 +18,8 @@
 @use "blocks/mixins/fancybox";
 @use "blocks/mixins/tag";
 @use "blocks/mixins/inner-banner";
+@use "blocks/mixins/employee-card";
+@use "blocks/mixins/filter-checkbox";
 
 @use "blocks/parts/default/header";
 @use "blocks/parts/default/footer";
@@ -38,7 +40,28 @@
 @use "blocks/parts/team-banner";
 @use "blocks/parts/history";
 @use "blocks/parts/mission";
+@use "blocks/parts/team-slider";
+@use "blocks/parts/network-slider";
 
 @use 'base/utils';
 
 @import 'aos/dist/aos.css';
+
+.swal2-backdrop-show {
+  background-color: #E4E4EE80 !important;
+  backdrop-filter: blur(20px);
+}
+
+.swal2-show {
+  animation: swal2-show-custom 0.3s !important;
+}
+
+@keyframes swal2-show-custom {
+  0% {
+    scale: 0.7;
+  }
+
+  100% {
+    scale: 1;
+  }
+}

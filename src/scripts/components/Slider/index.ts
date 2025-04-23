@@ -2,7 +2,7 @@ import Swiper from 'swiper';
 import { Pagination, Navigation } from 'swiper/modules';
 
 export const sliderInit = (): void => {
-  const swiperEls = document.querySelectorAll('.swiper');
+  const swiperEls = document.querySelectorAll('.swiper-default');
 
   swiperEls.forEach((swiperEl) => {
     if (!(swiperEl instanceof HTMLElement)) return;

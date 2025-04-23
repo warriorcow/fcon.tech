@@ -1,0 +1,23 @@
+mixin employee-card(props)
+  .employee-card
+    .employee-card__image
+      img(src=props.image)
+
+    .employee-card__header
+      .employee-card__title= props.title
+      if props.subtitle
+        .employee-card__subtitle= props.subtitle
+
+    if props.tags
+      .employee-card__tags
+        each tag, index in props.tags
+          .employee-card__tag= tag
+
+    .employee-card__body
+      .employee-card__description= props.description
+
+    if props.href
+      .employee-card__footer
+        .employee-card__link= props.linkName
+
+
