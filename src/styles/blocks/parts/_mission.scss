@@ -1,0 +1,188 @@
+@use '../../base/helpers' as *;
+
+.mission {
+  &__wrapper {
+    display: flex;
+    gap: 0 30px;
+
+    @include tablet {
+      align-items: flex-start;
+    }
+
+    @include mobile {
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+  }
+
+  &__graph {
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    background: var(--background-violet-gradient);
+    width: 490px;
+    flex-shrink: 0;
+
+    @include tablet {
+      width: 352px;
+      height: 350px;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__graph-image {
+    position: absolute;
+    width: 416px;
+    height: 314px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include tablet {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include mobile {
+      width: 355px;
+      height: 314px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__graph-points {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  &__graph-tag {
+    @include fontT2;
+    position: absolute;
+
+    display: inline-block;
+    padding: 8px 20px;
+
+    text-align: center;
+
+    background-color: var(--color-light-transparent-40);
+    border-radius: 19px;
+    color: var(--color-light);
+
+    @include mobile {
+      @include fontT3;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 100%;
+
+      width: 20px;
+      height: 20px;
+
+      content: url('../img/dot.svg');
+    }
+
+    &:nth-child(1) {
+      top: 65%;
+      left: 5%;
+
+      @include tablet {
+        top: 72%;
+        left: 22px;
+      }
+
+      &::before {
+        top: -8px;
+        left: calc(100% + 8px);
+
+        @include tablet {
+          top: -25px;
+          left: calc(100% - 5px);
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      top: 18%;
+      left: 10%;
+
+      @include tablet {
+        top: 22%;
+        left: 10px;
+      }
+
+      &::before {
+        top: 8px;
+        left: calc(100% + 8px);
+
+        @include tablet {
+          top: -25px;
+          left: calc(100% + 5px);
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      top: 62%;
+      right: 0;
+
+      @include tablet {
+        top: 38%;
+        right: 10px;
+      }
+
+      &::before {
+        top: -20px;
+        left: calc(0% - 12px);
+
+        @include tablet {
+          top: -25px;
+          left: 5px;
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: 40px;
+    border-radius: 30px;
+    background-color: var(--color-light);
+
+    @include tablet {
+      padding: 20px;
+    }
+  }
+
+  &__title {
+    @include fontH1;
+
+    @include tablet {
+      @include fontH4;
+    }
+  }
+
+  &__text {
+    @include fontT2;
+
+    margin-top: 40px;
+
+    @include tablet {
+      @include fontT4;
+
+      margin-top: 20px;
+    }
+  }
+}
