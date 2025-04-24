@@ -3,27 +3,37 @@
 .employee-card {
   $self: &;
 
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  background-color: var(--color-light);
-  border-radius: 30px;
-  padding: 30px;
+  position: relative;
+  width: 100%;
   height: 100%;
-  border: 2px solid transparent;
   text-decoration: none !important;
 
-  &:hover {
-    border-color: var(--color-accent-secondary);
+  &__wrapper {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: var(--color-light);
+    border-radius: 30px;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    text-decoration: none !important;
+    transition: var(--transition-duration) ease;
 
-    #{$self}__link {
-      text-decoration: underline;
-      color: var(--color-accent-secondary);
+    &:hover {
+      border-color: var(--color-accent-secondary);
+
+      #{$self}__link {
+        text-decoration: underline;
+        color: var(--color-accent-secondary);
+      }
     }
-  }
 
-  @include tablet {
-    padding: 20px;
+    @include tablet {
+      padding: 20px;
+    }
   }
 
   &__image {

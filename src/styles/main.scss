@@ -42,26 +42,40 @@
 @use "blocks/parts/mission";
 @use "blocks/parts/team-slider";
 @use "blocks/parts/network-slider";
+@use "blocks/parts/modal";
 
 @use 'base/utils';
 
 @import 'aos/dist/aos.css';
 
 .swal2-backdrop-show {
+  animation: swal2-show-overlay 300ms !important;
   background-color: #E4E4EE80 !important;
   backdrop-filter: blur(20px);
 }
 
 .swal2-show {
-  animation: swal2-show-custom 0.3s !important;
+  animation: swal2-show-custom 400ms !important;
+}
+
+@keyframes swal2-show-overlay {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes swal2-show-custom {
   0% {
+    opacity: 0;
     scale: 0.7;
   }
 
   100% {
+    opacity: 1;
     scale: 1;
   }
 }

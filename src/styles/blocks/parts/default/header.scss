@@ -47,6 +47,15 @@
     }
   }
 
+  &__link {
+    color: var(--color-accent-alt);
+    transition: color var(--transition-duration) ease-in;
+
+    @include hover {
+      color: var(--color-accent);
+    }
+  }
+
   &__menu {
     display: flex;
     align-items: center;
@@ -83,7 +92,6 @@
     gap: 0 20px;
     margin-left: auto;
 
-    color: var(--color-accent-alt);
     white-space: nowrap;
     text-decoration: none;
 

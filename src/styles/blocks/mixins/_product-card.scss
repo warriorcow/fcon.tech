@@ -4,12 +4,14 @@
   $self: &;
 
   position: relative;
+  width: 100%;
   height: 100%;
   text-decoration: none !important;
 
   &__wrapper {
     display: flex;
     flex-direction: column;
+    width: 100%;
     height: 100%;
     border-radius: 30px;
     padding: 40px 20px;

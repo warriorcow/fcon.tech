@@ -1,21 +1,29 @@
 import Swiper from 'swiper';
 import type { SwiperOptions } from 'swiper/types';
 import { Pagination, Navigation } from 'swiper/modules';
-import { modalInit } from '@/components/Modal'
 
 let swiper: Swiper | null = null;
 
 // Тип ответа сервера
-interface EmployeeItem {
+export interface EmployeeItem {
   title: string;
   subtitle: string;
-  description: string;
+  preview: string;
   tags: string[];
+  description: string;
+  socials: {
+    linkedin: string;
+    x_twitter: string;
+    telegram: string;
+  }
   image: string;
 }
 
 interface ApiResponse {
-  items: EmployeeItem[];
+  data: {
+    ITEMS: EmployeeItem[];
+    SECTIONS: string[];
+  }
 }
 
 // Получение выбранных фильтров
@@ -26,201 +34,33 @@ const getSelectedFilters = (): string[] => {
 };
 
 // Запрос на сервер
-const fetchEmployees = (filters: string[]) => {
-  console.log(filters)
-  // try {
-  //   const params = new URLSearchParams();
-  //   filters.forEach(filter => params.append('filters[]', filter));
-  //
-  //   const response = await fetch(`/your-api-endpoint?${params.toString()}`);
-  //   if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-  //
-  //   const data: unknown = await response.json();
-  //
-  //   if (
-  //     typeof data === 'object' &&
-  //     data !== null &&
-  //     Array.isArray((data as ApiResponse).items)
-  //   ) {
-  //     return (data as ApiResponse).items;
-  //   }
-  //
-  //   throw new Error('Invalid API response format');
-  // } catch (error) {
-  //   console.error('Fetch employees error:', error);
-  //   return [];
-  // }
-  const mockData = [
-    {
-      items: [
-        {
-          title: 'Иванов Пётр 0',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 0',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 0',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 0',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        }
-      ],
-    },
-    {
-      items: [
-        {
-          title: 'Иванов Пётр 1',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 1',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 1',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 1',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        }
-      ],
-    },
-    {
-      items: [
-        {
-          title: 'Иванов Пётр 2',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 2',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 2',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 2',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        }
-      ],
-    },
-    {
-      items: [
-        {
-          title: 'Иванов Пётр 3',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 3',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 3',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 3',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        }
-      ],
-    },
-    {
-      items: [
-        {
-          title: 'Иванов Пётр 4',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 4',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 4',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        },
-        {
-          title: 'Иванов Пётр 4',
-          description: 'Стратегия цифровизации, оргдизайн, бизнес и ИТ стратегия, бизнес модель.',
-          subtitle: 'Технический директор',
-          tags: ['Продукт', 'Стратегия', 'Процессы'],
-          image: 'img/owner.png'
-        }
-      ],
-    }
-  ]
+const fetchEmployees = async (filters: string[]): Promise<EmployeeItem[]> => {
+  try {
+    const params = new URLSearchParams();
+    params.append('mode', 'ajax');
+    params.append('c', 'frog:slider');
+    params.append('action', 'filter');
+    filters.forEach(filter => {
+      const number = Number(filter) + 1;
+      params.append('sectionsId[]', String(number))
+    });
 
-  if (filters.length === 0) {
-    // Вернуть всех
-    return mockData.flatMap(group => group.items);
+    const response = await fetch(`https://alekseyp.ru/bitrix/services/main/ajax.php?${params.toString()}`, {
+      method: 'POST'
+    });
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+    const data: ApiResponse = await response.json();
+
+    return data.data.ITEMS;
+
+    throw new Error('Invalid API response format');
+  } catch (error) {
+    console.error('Fetch employees error:', error);
+    return [];
   }
-
-  return filters.flatMap(index => mockData[Number(index)]?.items ?? []);
 };
-
+import { createModal } from '@/components/Modal'
 // Генерация HTML-карточек
 const renderSlides = (items: EmployeeItem[]): void => {
   const wrapper = document.querySelector('.swiper-element-network-slider .swiper-wrapper');
@@ -229,25 +69,31 @@ const renderSlides = (items: EmployeeItem[]): void => {
   wrapper.innerHTML = '';
 
   items.forEach(item => {
-    const { title, subtitle, description, tags, image } = item;
+    const { title, subtitle, preview, tags, image } = item;
 
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
     slide.innerHTML = `
-      <a class="employee-card" data-aos="fade-up">
-        <div class="employee-card__image"><img src="${image}" alt="${title}"></div>
-        <div class="employee-card__header">
-          <div class="employee-card__title">${title}</div>
-          <div class="employee-card__subtitle">${subtitle}</div>
-        </div>
-        <div class="employee-card__tags">
-          ${tags.map(tag => `<div class="employee-card__tag">${tag}</div>`).join('')}
-        </div>
-        <div class="employee-card__body">
-          <div class="employee-card__description">${description}</div>
+      <a class="employee-card" data-aos="fade-left"">
+        <div class="employee-card__wrapper">
+          <div class="employee-card__image"><img src="${image}" alt="${title}"></div>
+          <div class="employee-card__header">
+            <div class="employee-card__title">${title}</div>
+            <div class="employee-card__subtitle">${subtitle}</div>
+          </div>
+          <div class="employee-card__tags">
+            ${tags.map(tag => `<div class="employee-card__tag">${tag}</div>`).join('')}
+          </div>
+          <div class="employee-card__body">
+            <div class="employee-card__description">${preview}</div>
+          </div>
         </div>
       </a>
     `;
+
+    slide.addEventListener('click', () => {
+      createModal(item);
+    });
     wrapper.appendChild(slide);
   });
 };
@@ -290,17 +136,17 @@ const initSwiper = (): void => {
 };
 
 // Главная функция обновления слайдера
-const updateSlider = ()=> {
+const updateSlider = async ()=> {
   const filters = getSelectedFilters();
-  const items = fetchEmployees(filters);
+  const items = await fetchEmployees(filters);
+
   renderSlides(items);
   initSwiper();
-  modalInit();
 };
 
 // Экспортируемая функция инициализации
-export const networkSliderInit = (): void => {
-  updateSlider();
+export const networkSliderInit = async (): Promise<void> => {
+  await updateSlider();
 
   document.querySelectorAll('.filter-checkbox__input').forEach(input => {
     input.addEventListener('change', updateSlider);

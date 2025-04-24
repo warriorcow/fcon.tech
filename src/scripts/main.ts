@@ -11,7 +11,6 @@ import { initScrollUp } from '@/components/ScrollUp'
 import { initCardSlider } from '@/components/CardSlider'
 import { initFancybox } from '@/components/Fancybox'
 import { networkSliderInit } from '@/components/NetworkSlider'
-import { modalInit } from '@/components/Modal'
 
 initHeaderMenu();
 marqueeLine();
@@ -22,7 +21,6 @@ initScrollUp();
 initCardSlider();
 initFancybox();
 networkSliderInit();
-modalInit();
 
 AOS.init({
   once: true

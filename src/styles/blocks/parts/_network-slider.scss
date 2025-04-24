@@ -1,6 +1,10 @@
 @use '../../base/helpers' as *;
 
 .network-slider {
+  .swiper-element-network-slider {
+    transition: opacity var(--transition-duration) ease-in;
+  }
+
   &__header {
     display: flex;
     flex-direction: column;
@@ -9,6 +13,7 @@
   &__footer {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin-top: 40px;
     gap: 40px;
 
