@@ -6,7 +6,6 @@ export const sliderInit = (): void => {
 
   swiperEls.forEach((swiperEl) => {
     if (!(swiperEl instanceof HTMLElement)) return;
-
     const autoGenerate = swiperEl.dataset.autoGenerate === 'true';
     const hasDisableClass = swiperEl.classList.contains('swiper--disable-desktop');
     const showMoreEnabled = swiperEl.classList.contains('swiper--disable-desktop');
@@ -174,6 +173,7 @@ export const sliderInit = (): void => {
       });
 
       initSwiper();
+      swiperEl.style.opacity = '1';
     };
 
     handleResize(); // первый запуск

@@ -1,0 +1,62 @@
+@use '../../base/helpers' as *;
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 110px;
+
+  @include tablet {
+    margin-top: 20px;
+  }
+
+  @include mobile {
+    margin-top: 80px;
+  }
+
+  &__wrapper {
+    position: relative;
+    padding: 60px 12px;
+    text-align: center;
+
+    @include tablet {
+      width: 100%;
+      max-width: 355px;
+      padding: 73px 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../img/blot.svg") no-repeat center / contain;
+      z-index: -1;
+    }
+  }
+
+  &__title {
+    @include fontT5;
+
+    color: var(--color-accent);
+
+    @include tablet {
+      @include fontT6;
+    }
+  }
+
+  &__subtitle {
+    @include fontT1;
+  }
+
+  &__button {
+    margin-top: 80px;
+
+    @include tablet {
+      margin-top: 40px;
+    }
+  }
+}

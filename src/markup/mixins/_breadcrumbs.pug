@@ -1,0 +1,6 @@
+mixin breadcrumbs(props)
+  .container
+    ul.breadcrumbs
+      each breadcrumb in props.breadcrumbs
+        li.breadcrumbs__item
+          a(href=breadcrumb.link)= breadcrumb.text

@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2'
-import { EmployeeItem } from '@/components/NetworkSlider/index.js'
+import { ModalData } from '@/components/TeamSlider/index.js'
 
-export const createModal = (data: EmployeeItem): void => {
+export const createModal = (data: ModalData): void => {
   const { linkedin, x_twitter, telegram } = data.socials
 
   const socialsHTML = `
@@ -53,6 +53,36 @@ export const createModal = (data: EmployeeItem): void => {
   document.querySelector('.modal__close')?.addEventListener('click', () => {
     Swal.close();
   });
+
+  setTimeout(() => {
+    clickOutside('.modal__wrapper', () => {
+      if (Swal.isVisible()) {
+        Swal.close();
+      }
+    });
+  }, 0)
 }
 
+const clickOutside = (wrapperSelector: string, onClickOutside: () => void): void => {
+  const handleClick = (event: MouseEvent) => {
+    if (!Swal.isVisible()) return; // Модалка не открыта, не обрабатываем клик
+
+    const wrapper = document.querySelector(wrapperSelector);
+    if (!wrapper) return;
+
+    const target = event.target as Node;
+    if (!wrapper.contains(target)) {
+      onClickOutside();
+    }
+  };
+
+  const checkSwalVisibility = () => {
+    if (!Swal.isVisible()) {
+      document.removeEventListener('click', handleClick); // Убираем слушатель, если модалка закрыта
+    }
+  };
+
+  document.addEventListener('click', handleClick);
+  setInterval(checkSwalVisibility, 100); // Проверяем состояние Swal каждые 100 мс
+};
 

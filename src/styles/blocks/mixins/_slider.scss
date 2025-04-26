@@ -4,6 +4,8 @@
 .swiper {
   $swiper: &;
 
+  opacity: 0;
+
   @include mobile {
     margin: 0 -10px;
     padding: 0 10px;

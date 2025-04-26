@@ -1,5 +1,7 @@
 mixin employee-card(props)
-  .employee-card
+  - var noHover = props.noHover ? 'employee-card--no-hover' : '';
+
+  .employee-card(class=noHover)&attributes(attributes)
     .employee-card__wrapper
       .employee-card__image
         img(src=props.image)

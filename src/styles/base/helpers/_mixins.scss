@@ -204,6 +204,18 @@
   line-height: 115%;
 }
 
+@mixin fontT5() {
+  font-weight: 700;
+  font-size: 13.75rem;
+  line-height: 94%;
+}
+
+@mixin fontT6() {
+  font-weight: 700;
+  font-size: 6.875rem;
+  line-height: 94%;
+}
+
 @mixin list() {
   @include fontT2;
 

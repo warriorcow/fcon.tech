@@ -7,13 +7,15 @@
     background-color: var(--color-light);
     padding: 40px;
     border-radius: 30px;
-    display: flex;
-    gap: 20px clamp(16px, 2vw, 40px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px clamp(16px, 2vw, 40px);
 
     @include tablet {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       background-color: var(--color-light);
       padding: 20px;
+      grid-gap: 20px;
     }
   }
 

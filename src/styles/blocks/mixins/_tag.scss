@@ -12,6 +12,14 @@
   background-color: var(--color-light);
   border: 1px solid var(--color-gray);
   border-radius: 55px;
+  transition: var(--transition-duration) ease-in;
+  cursor: pointer;
+
+  @include hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
 
   @include tablet {
     @include fontT3;

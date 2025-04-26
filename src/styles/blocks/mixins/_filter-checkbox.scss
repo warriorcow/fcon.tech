@@ -11,6 +11,14 @@
   background-color: var(--color-light);
   border-radius: 40px;
   user-select: none;
+  transition: var(--transition-duration) ease-in;
+  border: 2px solid transparent;
+  color: var(--color-dark);
+
+  @include hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
 
   @include tablet {
     @include fontT3;

@@ -1,6 +1,13 @@
 @use '../../base/helpers' as *;
 
 .network-slider {
+  &__cell {
+    @include mobile-above {
+      overflow: hidden;
+      border-radius: 30px;
+    }
+  }
+
   .swiper-element-network-slider {
     transition: opacity var(--transition-duration) ease-in;
   }

@@ -1,6 +1,13 @@
 @use '../../base/helpers' as *;
 
 .team-slider {
+  &__cell {
+    @include mobile-above {
+      overflow: hidden;
+      border-radius: 30px;
+    }
+  }
+
   &__navigation {
     display: flex;
     gap: 0 20px;

@@ -20,6 +20,7 @@
 @use "blocks/mixins/inner-banner";
 @use "blocks/mixins/employee-card";
 @use "blocks/mixins/filter-checkbox";
+@use "blocks/mixins/breadcrumbs";
 
 @use "blocks/parts/default/header";
 @use "blocks/parts/default/footer";
@@ -43,6 +44,7 @@
 @use "blocks/parts/team-slider";
 @use "blocks/parts/network-slider";
 @use "blocks/parts/modal";
+@use "blocks/parts/error-page";
 
 @use 'base/utils';
 

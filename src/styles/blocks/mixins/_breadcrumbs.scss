@@ -1,0 +1,31 @@
+@use '../../base/helpers' as *;
+
+.breadcrumbs {
+  @include fontT4;
+
+  display: flex;
+  margin-top: 10px;
+
+  &__item {
+    &:not(:first-child) {
+      &::before {
+        content: '/';
+        color: #9EAAF5;
+        margin: 0 10px;
+      }
+    }
+
+    &:last-child {
+      pointer-events: none;
+    }
+  }
+
+  a {
+    color: #9EAAF5;
+    transition: color var(--);
+
+    @include hover {
+      color: var(--color-accent);
+    }
+  }
+}

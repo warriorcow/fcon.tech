@@ -74,7 +74,7 @@ const renderSlides = (items: EmployeeItem[]): void => {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
     slide.innerHTML = `
-      <a class="employee-card" data-aos="fade-left"">
+      <a class="employee-card employee-card--no-hover" data-aos="fade-left"">
         <div class="employee-card__wrapper">
           <div class="employee-card__image"><img src="${image}" alt="${title}"></div>
           <div class="employee-card__header">
@@ -91,9 +91,7 @@ const renderSlides = (items: EmployeeItem[]): void => {
       </a>
     `;
 
-    slide.addEventListener('click', () => {
-      createModal(item);
-    });
+
     wrapper.appendChild(slide);
   });
 };
@@ -132,6 +130,7 @@ const initSwiper = (): void => {
 
   setTimeout(() => {
     swiper = new Swiper(swiperEl, options);
+    swiperEl.style.opacity = '1';
   }, 0);
 };
 

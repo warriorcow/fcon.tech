@@ -8,6 +8,14 @@
   height: 100%;
   text-decoration: none !important;
 
+  &--no-hover {
+    #{$self}__wrapper {
+      border: 2px solid transparent !important;
+      color: var(--color-dark) !important;
+      cursor: default;
+    }
+  }
+
   &__wrapper {
     cursor: pointer;
     display: flex;
@@ -26,7 +34,6 @@
       border-color: var(--color-accent-secondary);
 
       #{$self}__link {
-        text-decoration: underline;
         color: var(--color-accent-secondary);
       }
     }
@@ -107,6 +114,7 @@
     @include fontT2;
 
     color: var(--color-accent);
+    text-decoration: underline;
 
     @include tablet {
       @include fontT3;

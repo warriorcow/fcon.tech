@@ -105,6 +105,10 @@ a {
   }
 }
 
+main {
+  flex: 1;
+}
+
 :focus-visible {
   border-radius: rem(12);
   outline: rem(2) dashed rgb(var(--color-dark));
@@ -115,4 +119,11 @@ a {
   @include laptop {
     border-radius: rem(8);
   }
+}
+
+.wrapper {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

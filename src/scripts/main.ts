@@ -11,6 +11,7 @@ import { initScrollUp } from '@/components/ScrollUp'
 import { initCardSlider } from '@/components/CardSlider'
 import { initFancybox } from '@/components/Fancybox'
 import { networkSliderInit } from '@/components/NetworkSlider'
+import { teamSliderInit } from '@/components/TeamSlider'
 
 initHeaderMenu();
 marqueeLine();
@@ -20,7 +21,8 @@ initInputs();
 initScrollUp();
 initCardSlider();
 initFancybox();
-networkSliderInit();
+teamSliderInit();
+await networkSliderInit();
 
 AOS.init({
   once: true

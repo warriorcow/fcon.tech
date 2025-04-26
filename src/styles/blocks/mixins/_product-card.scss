@@ -29,7 +29,6 @@
       border-color: var(--color-accent-secondary);
 
       #{$self}__link {
-        text-decoration: underline;
         color: var(--color-accent-secondary);
       }
     }
@@ -88,6 +87,7 @@
     margin-top: auto;
 
     transition: color var(--transition-duration) ease-in;
-    color: var(--color-accent)
+    color: var(--color-accent);
+    text-decoration: underline;
   }
 }
