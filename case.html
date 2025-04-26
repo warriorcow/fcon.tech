@@ -13,8 +13,8 @@
     <meta name="theme-color" content="#000">
     <meta name="msapplication-navbutton-color" content="#000">
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
-    <link rel="icon" href="img/favicon-light.png" type="image/png" media="(prefers-color-scheme=light)">
-    <link rel="icon" href="img/favicon-dark.png" type="image/png" media="(prefers-color-scheme=dark)">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <!--link(rel="icon", href="img/favicon-dark.png", type="image/png", media="(prefers-color-scheme=dark)")-->
     <link rel="apple-touch-icon" href="img/favicon.png">
     <link rel="manifest" href="manifest.json">
     <link rel="canonical" href="http://localhost:3000">
@@ -69,15 +69,20 @@
           <div class="header__hamburger"><span></span><span></span><span></span></div>
         </div>
       </header>
+      <div class="container">
+        <ul class="breadcrumbs">
+          <li class="breadcrumbs__item"><a href="/">Главная</a></li>
+          <li class="breadcrumbs__item"><a href="/inner.html">Страница</a></li>
+          <li class="breadcrumbs__item"><a href="/inner.html">Страница</a></li>
+        </ul>
+      </div>
       <main>
         <section class="case-banner container">
           <div class="case-banner__wrapper">
             <div class="case-banner__image"><img src="img/product-card-image.png"></div>
             <div class="case-banner__head">
               <div class="case-banner__title">Компания Сompeto</div>
-              <div class="case-banner__tags">
-                <div class="tag">Проект</div>
-                <div class="tag">Диагностирование</div>
+              <div class="case-banner__tags"><a class="tag">Проект</a><a class="tag">Диагностирование</a>
               </div>
             </div>
             <div class="case-banner__case">
@@ -111,6 +116,14 @@
             </div>
             <div class="path__step">
               <div class="path__step-title">Этап 3:</div>
+              <div class="path__step-text">Пилот по изменению производственного процесса с тремя продуктовыми командами, менторинг delivery manegers, обучение команд</div>
+            </div>
+            <div class="path__step">
+              <div class="path__step-title">Этап 4:</div>
+              <div class="path__step-text">Пилот по изменению производственного процесса с тремя продуктовыми командами, менторинг delivery manegers, обучение команд</div>
+            </div>
+            <div class="path__step">
+              <div class="path__step-title">Этап 5:</div>
               <div class="path__step-text">Пилот по изменению производственного процесса с тремя продуктовыми командами, менторинг delivery manegers, обучение команд</div>
             </div>
           </div>
