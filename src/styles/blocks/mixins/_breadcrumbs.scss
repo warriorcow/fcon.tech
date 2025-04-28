@@ -4,7 +4,13 @@
   @include fontT4;
 
   display: flex;
+  flex-wrap: wrap;
   margin-top: 10px;
+  gap: 5px 0;
+
+  @include tablet {
+    @include fontT3;
+  }
 
   &__item {
     &:not(:first-child) {
@@ -12,6 +18,10 @@
         content: '/';
         color: #9EAAF5;
         margin: 0 10px;
+
+        @include tablet {
+          margin: 0 5px;
+        }
       }
     }
 
@@ -22,7 +32,7 @@
 
   a {
     color: #9EAAF5;
-    transition: color var(--);
+    transition: color var(--transition-duration);
 
     @include hover {
       color: var(--color-accent);
