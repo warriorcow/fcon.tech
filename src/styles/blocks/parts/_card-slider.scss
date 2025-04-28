@@ -38,6 +38,10 @@
 
   &__content {
     max-width: 750px;
+
+    ul {
+      @include list;
+    }
   }
 
   &__image {
@@ -50,9 +54,5 @@
       width: 183px;
       flex-shrink: 0;
     }
-  }
-
-  &__list {
-    @include list;
   }
 }

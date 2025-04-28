@@ -20,10 +20,7 @@ export const teamSliderInit = (): void => {
 
     const slideData: ModalData = JSON.parse(modalInfoRaw);
 
-    console.log(slideData)
-
     slide.addEventListener('click', () => {
-      console.log('adadad')
       createModal(slideData);
     });
   });

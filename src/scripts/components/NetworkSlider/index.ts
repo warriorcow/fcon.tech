@@ -41,7 +41,7 @@ const fetchEmployees = async (filters: string[]): Promise<EmployeeItem[]> => {
     params.append('c', 'frog:slider');
     params.append('action', 'filter');
     filters.forEach(filter => {
-      const number = Number(filter) + 1;
+      const number = Number(filter);
       params.append('sectionsId[]', String(number))
     });
 
@@ -60,7 +60,7 @@ const fetchEmployees = async (filters: string[]): Promise<EmployeeItem[]> => {
     return [];
   }
 };
-import { createModal } from '@/components/Modal'
+
 // Генерация HTML-карточек
 const renderSlides = (items: EmployeeItem[]): void => {
   const wrapper = document.querySelector('.swiper-element-network-slider .swiper-wrapper');

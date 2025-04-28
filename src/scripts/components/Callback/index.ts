@@ -1,4 +1,5 @@
 import JustValidate, { Rules } from 'just-validate';
+declare function ym(counterId: number, type: 'reachGoal', target: string): void;
 
 export const initCallbackForm = (): void => {
   const wrapperClass = '.callback';
@@ -20,11 +21,11 @@ export const initCallbackForm = (): void => {
         body: formData,
       });
 
-      console.log(formData)
-
       if (!response.ok) throw new Error(`Ошибка HTTP: ${response.status}`);
 
       formEl.reset();
+
+      ym(101621091, 'reachGoal', 'start_request');
     } catch (error) {
       console.error('Ошибка отправки формы:', error);
     } finally {
