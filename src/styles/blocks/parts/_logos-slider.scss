@@ -12,7 +12,7 @@
   }
 
   &__logo {
-    background-color: var(--color-accent-alt);
+    background-color: var(--color-accent);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -39,7 +39,7 @@
     }
 
     @include hover {
-      background-color: var(--color-accent);
+      background-color: var(--color-accent-secondary);
     }
   }
 

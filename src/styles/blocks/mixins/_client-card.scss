@@ -5,10 +5,12 @@
   padding: 40px;
 
   background-color: var(--color-light);
-  border-radius: 30px;
+  border: 2px solid var(--color-accent-alt);
+  border-radius: 20px;
 
   @include tablet {
     padding: 20px;
+    border-radius: 20px;
   }
 
   &__header {

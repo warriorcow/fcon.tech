@@ -65,9 +65,9 @@
   min-height: auto;
   padding: 40px;
   background-color: var(--color-light);
-  border-radius: 30px;
+  border-radius: 20px;
   opacity: 1;
-  border: 2px solid #E9EBFF;
+  border: 2px solid var(--color-accent-alt-2);
   box-shadow: 0 4px 17.4px #E9EBFF;
 
   @include tablet {
@@ -123,7 +123,7 @@
   content: '';
   width: 19px;
   height: 30px;
-  background-image: url('../img/arrow.svg');
+  background-image: url('../img/arrow-color.svg');
   background-size: contain;
   background-repeat: no-repeat;
   transition: transform var(--transitionLength) var(--transitionTiming);

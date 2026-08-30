@@ -3,4 +3,7 @@ mixin input(props)
 
   label.el-input&attributes(attributes)
     span.el-input__label= props.label
-    input.el-input__input(type=type, placeholder=props.placeholder, required=props.required, id=props.id, name=props.id)
+    if type === 'textarea'
+      textarea.el-input__input(placeholder=props.placeholder, required=props.required, id=props.id, name=props.id)
+    else
+      input.el-input__input(type=type, placeholder=props.placeholder, required=props.required, id=props.id, name=props.id)

@@ -7,6 +7,8 @@ section.callback.container#callback
         a(href="#").callback__media
           +icon('icon-tg')(width='29', height='29')
           | Telegram
+      .callback__image
+        img(src='img/callback_image.png')
     .callback__form-wrapper
       form.callback__form#callback__form
         +input({
@@ -26,6 +28,12 @@ section.callback.container#callback
           label: 'Электронная почта',
           errorMessage: 'Поле заполнено некорректно, проверьте'
         }).callback__input
+        +input({
+          id: 'message',
+          label: 'Ваш запрос',
+          type: 'textarea',
+          errorMessage: 'Поле заполнено некорректно, проверьте'
+        }).callback__input.callback__textarea
 
         +checkbox({
           id: 'policy',

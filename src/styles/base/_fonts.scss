@@ -12,7 +12,9 @@
 
 @use 'helpers' as *;
 
-@include font-face('Geologica', '../fonts/geologica/Geologica-Light', 300);
-@include font-face('Geologica', '../fonts/geologica/Geologica-Regular');
-@include font-face('Geologica', '../fonts/geologica/Geologica-Medium', 500);
-@include font-face('Geologica', '../fonts/geologica/Geologica-Bold', 700);
+@include font-face('Oswald', '../fonts/oswald/Oswald-Light', 300);
+@include font-face('Oswald', '../fonts/oswald/Oswald-Regular');
+@include font-face('Oswald', '../fonts/oswald/Oswald-Medium', 500);
+@include font-face('Oswald', '../fonts/oswald/Oswald-Bold', 700);
+
+@include font-face('Inter', '../fonts/inter/Inter-Regular');

@@ -157,63 +157,75 @@
 }
 
 @mixin fontH1() {
-  font-weight: 700;
-  font-size: 3rem;
-  line-height: 94%;
+  font-weight: 500;
+  font-size: 2.625rem;
+  line-height: 110%;
+  font-family: var(--font-family-heading);
+  text-transform: uppercase;
 }
 
 @mixin fontH2() {
   font-weight: 500;
   font-size: 2rem;
   line-height: 115%;
+  font-family: var(--font-family-heading);
 }
 
 @mixin fontH3() {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.5rem;
-  line-height: 28px;
+  line-height: 115%;
+  font-family: var(--font-family-heading);
 }
 
 @mixin fontH4() {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 1.875rem;
   line-height: 110%;
+  font-family: var(--font-family-heading);
+  text-transform: uppercase;
 }
 
 @mixin fontT1() {
   font-weight: 400;
   font-size: 1.125rem;
-  line-height: 21px;
+  line-height: 115%;
+  font-family: var(--font-family-base);
 }
 
 @mixin fontT2() {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.125rem;
-  line-height: 21px;
+  line-height: 115%;
+  font-family: var(--font-family-base);
 }
 
 @mixin fontT3() {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 0.875rem;
-  line-height: 16px;
+  line-height: 115%;
+  font-family: var(--font-family-base);
 }
 
 @mixin fontT4() {
   font-weight: 400;
   font-size: 1rem;
   line-height: 115%;
+  font-family: var(--font-family-base);
 }
 
 @mixin fontT5() {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 13.75rem;
   line-height: 94%;
+  font-family: var(--font-family-heading);
 }
 
 @mixin fontT6() {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 6.875rem;
   line-height: 94%;
+  font-family: var(--font-family-heading);
 }
 
 @mixin list() {

@@ -36,12 +36,14 @@
     padding: 40px 100px 40px 40px;
     width: 100%;
     max-width: 1040px;
-    border-radius: 30px !important;
+    border: 2px solid var(--color-accent-alt);
+    border-radius: 20px !important;
     margin-bottom: 40px;
 
     @include tablet {
       gap: 20px;
       padding: 20px;
+      border-radius: 30px !important;
     }
 
     @include mobile {

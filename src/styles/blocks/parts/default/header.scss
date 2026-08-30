@@ -6,10 +6,10 @@
   position: sticky;
   top: 10px;
   z-index: 10;
-  
+
   overflow: hidden;
 
-  border-radius: 30px;
+  border-radius: 20px;
 
   &::before {
     position: absolute;
@@ -47,11 +47,11 @@
   }
 
   &__link {
-    color: var(--color-accent-alt);
+    color: var(--color-accent);
     transition: color var(--transition-duration) ease-in;
 
     @include hover {
-      color: var(--color-accent);
+      color: var(--color-accent-secondary);
     }
   }
 
@@ -72,7 +72,7 @@
       height: 100dvh;
       padding: 80px 10px 80px;
 
-      background-color: var(--color-light-gray);
+      background-color: var(--color-light);
       transform: translateX(0);
 
       transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
@@ -105,21 +105,6 @@
       min-height: 270px;
       margin-bottom: 40px;
       margin-left: 0;
-
-      &:before {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        z-index: -1;
-
-        width: 90%;
-        height: 100%;
-
-        background: url('../img/blot.svg') no-repeat center / contain;
-        transform: translateX(-50%);
-
-        content: '';
-      }
     }
   }
 

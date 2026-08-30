@@ -9,7 +9,7 @@
     display: flex;
     overflow: hidden;
 
-    border-radius: 20px 30px 30px 20px;
+    border-radius: 20px;
 
     transition: background-color 500ms;
 
@@ -41,12 +41,13 @@
 
   &__content {
     z-index: 3;
-
+    position: relative;
     flex-grow: 1;
     max-width: 560px;
-    padding: 40px;
+    padding: 40px 40px 0;
 
-    background: url("../img/blot.svg") no-repeat center / 70%, var(--color-light);
+    background: var(--color-light);
+    border: 2px solid var(--color-accent-alt);
     border-radius: 20px;
 
     @include tablet {
@@ -61,6 +62,19 @@
       background-size: 62%;
       background-position: 15%;
       max-width: 100%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    max-width: 448px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include mobile {
+      display: none;
     }
   }
 
@@ -167,6 +181,14 @@
       @include tablet {
         grid-column: 1;
       }
+    }
+  }
+
+  &__textarea {
+    grid-column: span 2;
+
+    @include tablet {
+      grid-column: 1;
     }
   }
 

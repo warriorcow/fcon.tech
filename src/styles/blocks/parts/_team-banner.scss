@@ -55,7 +55,8 @@
     max-width: 740px;
     flex-shrink: 0;
     padding: 40px;
-    border-radius: 30px;
+    border: 2px solid var(--color-accent-alt);
+    border-radius: 20px;
 
     @include tablet {
       @include fontT4;

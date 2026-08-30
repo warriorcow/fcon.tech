@@ -6,7 +6,8 @@
   &__steps {
     background-color: var(--color-light);
     padding: 40px;
-    border-radius: 30px;
+    border: 2px solid var(--color-accent-alt);
+    border-radius: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 40px clamp(16px, 2vw, 40px);
@@ -16,6 +17,7 @@
       background-color: var(--color-light);
       padding: 20px;
       grid-gap: 20px;
+      border-radius: 20px;
     }
   }
 

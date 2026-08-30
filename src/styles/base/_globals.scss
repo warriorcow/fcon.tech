@@ -8,28 +8,29 @@
   --scroll-bar: #{rem(15)};
   --100vw: calc(100vw - var(--scroll-bar));
 
-  --font-family-base: 'Geologica', sans-serif;
+  --font-family-base: 'Inter', sans-serif;
+  --font-family-heading: 'Oswald', sans-serif;
 
   --color-light: #fff;
   --color-light-transparent-20: rgba(255, 255, 255, 0.2);
   --color-light-transparent-30: rgba(255, 255, 255, 0.3);
   --color-light-transparent-40: rgba(255, 255, 255, 0.4);
   --color-light-transparent-60: rgba(255, 255, 255, 0.6);
-  --color-dark: #000000;
-  --color-gray: #6C778E;
+  --color-dark: #2B2B2B;
+  --color-gray: #959595;
   --color-gray-transparent: rgba(195, 195, 195, 0.3);
-  --color-gray-header-transparent: rgba(244, 244, 246, 0.8);
+  --color-gray-header-transparent: rgba(255, 255, 255, 0.8);
   --color-light-gray: #F4F4F6;
-  --color-accent: #4760F3;
+  --color-accent: #8082F4;
   --color-accent-transparent-30: color-mix(in srgb, var(--color-accent) 30%, transparent);
-  --color-accent-secondary: #2D47E1;
-  --color-accent-alt: #8082F4;
-  --color-accent-alt-2: #A8B5FF;
+  --color-accent-secondary: #5557F2;
+  --color-accent-alt: #A8B5FF;
+  --color-accent-alt-2: #DFE0FC;
   --color-danger: #FF2C2C;
   --color-danger-alt: #FF8080;
   --color-danger-text: #FF9696;
   --color-danger-transparent: rgba(255, 167, 167, 0.4);
-  --background-violet-gradient: linear-gradient(86.95deg, #4760F4 11.58%, #8082F4 66.17%);
+  --background-violet-gradient: #8082F4;
 
   --border: #{rem(1)} solid rgb(var(--color-accent));
   --shadow: 0 0 0 #{rem(3)} rgba(var(--color-dark), 0.5);
@@ -57,7 +58,7 @@ body {
   color: var(--color-dark);
   font-family: var(--font-family-base);
 
-  background-color: var(--color-light-gray);
+  background-color: var(--color-light);
 }
 
 main {

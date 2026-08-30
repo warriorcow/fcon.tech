@@ -19,7 +19,7 @@
 
   &__slide {
     overflow: hidden;
-    border-radius: 30px;
+    border-radius: 20px;
     height: 512px;
 
     @include tablet {
@@ -29,7 +29,7 @@
 
   .swiper {
     overflow: hidden;
-    border-radius: 30px;
+    border-radius: 20px;
   }
 
   .swiper-element-diagnostics__prev,
