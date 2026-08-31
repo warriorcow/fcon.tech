@@ -36,14 +36,14 @@
       color: var(--color-accent);
 
       &::before {
-        content: '';
+        content: "";
         display: block;
         width: 16px;
         height: 16px;
         background: var(--color-light);
         border-radius: 9999px;
-        border: 3px solid var(--color-accent-alt);
-        box-shadow: 0 0 0 2px #9DAAF5;
+        border: 3px solid var(--color-accent);
+        box-shadow: 0 0 0 2px var(--color-accent-alt);
       }
     }
 
