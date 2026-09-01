@@ -12,12 +12,22 @@
   border-radius: 40px;
   user-select: none;
   transition: var(--transition-duration) ease-in;
-  border: 2px solid transparent;
+  border: 2px solid var(--color-accent-alt);
   color: var(--color-dark);
 
   @include hover {
-    color: var(--color-accent);
-    border-color: var(--color-accent);
+    color: var(--color-accent-secondary);
+    border-color: var(--color-accent-secondary);
+
+    #{$self}__mark {
+      border-color: var(--color-accent-secondary);
+    }
+
+    #{$self}__input {
+      &:checked + #{$self}__mark {
+        background: var(--color-accent-secondary);
+      }
+    }
   }
 
   @include tablet {
@@ -30,7 +40,7 @@
     display: none;
 
     &:checked + #{$self}__mark {
-      background: var(--color-accent);
+      background: var(--color-accent-alt);
     }
   }
 
@@ -38,9 +48,10 @@
     display: block;
     width: 16px;
     height: 16px;
-    border: 2px solid var(--color-accent);
+    border: 2px solid var(--color-accent-alt);
     border-radius: 3px;
     margin-right: 10px;
+    transition: var(--transition-duration) ease-in;
 
     @include tablet {
       width: 12px;
